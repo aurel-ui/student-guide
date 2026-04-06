@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking & Money Guide — ConceptCore Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Barlow+Condensed:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09090a;--bg2:#101012;--bg3:#161618;--bg4:#1c1c1f;
+  --border:rgba(255,255,255,0.06);--border-md:rgba(255,255,255,0.10);--border-hi:rgba(255,255,255,0.16);
+  --lime:#b4f000;--lime-lo:rgba(180,240,0,0.07);--lime-dim:#78a800;
+  --amber:#e09020;--amber-lo:rgba(224,144,32,0.08);--amber-brd:rgba(224,144,32,0.24);
+  --red:#d04848;--red-lo:rgba(208,72,72,0.07);--red-brd:rgba(208,72,72,0.24);
+  --blue:#4890c8;--blue-lo:rgba(72,144,200,0.07);--blue-brd:rgba(72,144,200,0.22);
+  --text:#d8dcd0;--text-hi:#eceee6;--muted:#686c62;--dim:#3c3e38;--white:#f0f2ea;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Golos Text',sans-serif;font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(180,240,0,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(180,240,0,0.025) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+
+.site-header{border-bottom:1px solid var(--border);padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(9,9,10,0.97);backdrop-filter:blur(16px);z-index:100;}
+.logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:17px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);}
+.logo span{color:var(--lime)}
+.header-right{display:flex;align-items:center;gap:14px}
+.header-tag{font-family:'Space Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--lime-dim);animation:pulse 2.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.8)}}
+
+.hero{padding:4.5rem 2.5rem 0;max-width:980px;margin:0 auto;position:relative;z-index:1;}
+.hero::before,.hero::after{content:'';position:absolute;width:18px;height:18px;}
+.hero::before{top:3.25rem;left:2.5rem;border-top:1px solid var(--lime-dim);border-left:1px solid var(--lime-dim)}
+.hero::after{top:3.25rem;right:2.5rem;border-top:1px solid var(--lime-dim);border-right:1px solid var(--lime-dim)}
+.eyebrow{font-family:'Space Mono',monospace;font-size:9px;color:var(--lime-dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;}
+.eyebrow::before{content:'// '}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4rem,8vw,7rem);font-weight:800;text-transform:uppercase;letter-spacing:0.01em;line-height:0.9;color:var(--white);margin-bottom:1.25rem;}
+.hero h1 .g{color:var(--lime)}
+.hero-sub{font-size:14px;color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:3rem;}
+
+.tab-label{font-family:'Space Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;}
+.tab-label::before{content:'// '}
+.tabs{display:flex;flex-direction:column;gap:8px;max-width:460px;margin-bottom:3.5rem;}
+.tab-btn{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:14px 24px;border:1px solid var(--border-md);background:var(--bg2);color:var(--muted);cursor:pointer;transition:all 0.12s;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.tab-btn::before{content:'[';font-family:'Space Mono',monospace;font-size:13px;color:var(--dim);font-weight:400}
+.tab-btn::after{content:']';font-family:'Space Mono',monospace;font-size:13px;color:var(--dim);font-weight:400}
+.tab-btn .ti{flex:1}
+.tab-btn .ts{display:block;font-family:'Space Mono',monospace;font-size:9px;font-weight:400;letter-spacing:0.07em;opacity:0.5;margin-top:2px;text-transform:uppercase;}
+.tab-btn:hover:not(.active){border-color:var(--border-hi);color:var(--text-hi);background:var(--bg3);}
+.tab-btn.active{background:var(--lime);color:#09090a;border-color:var(--lime);}
+.tab-btn.active::before,.tab-btn.active::after{color:rgba(0,0,0,0.35)}
+.tab-btn.active .ts{opacity:0.55}
+
+.main{max-width:980px;margin:0 auto;padding:0 2.5rem 6rem;position:relative;z-index:1;}
+.panel{display:block;opacity:0;transform:translateY(8px);transition:opacity 0.22s ease,transform 0.22s ease;pointer-events:none;position:absolute;width:100%;}
+.panel.active{opacity:1;transform:translateY(0);pointer-events:all;position:relative;}
+.panel-wrap{position:relative;min-height:200px;}
+
+.section{margin-bottom:3.5rem;padding-top:2.5rem}
+.sec-lbl{font-family:'Space Mono',monospace;font-size:9px;color:var(--lime-dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+.sec-lbl::before{content:'// '}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:1.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.025em;color:var(--white);margin-bottom:1.25rem;line-height:1.0;}
+
+.callout{padding:1rem 1.25rem;margin-bottom:0.875rem;border-left:2px solid;}
+.callout .cl{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+.callout .cl::before{content:'[ '}
+.callout .cl::after{content:' ]'}
+.callout p{font-size:13.5px;color:var(--muted);line-height:1.68}
+.callout p strong{color:var(--text-hi);font-weight:600}
+.callout.lime{background:var(--lime-lo);border-color:var(--lime-dim)}.callout.lime .cl{color:var(--lime)}
+.callout.amber{background:var(--amber-lo);border-color:var(--amber)}.callout.amber .cl{color:var(--amber)}
+.callout.red{background:var(--red-lo);border-color:var(--red)}.callout.red .cl{color:var(--red)}
+.callout.blue{background:var(--blue-lo);border-color:var(--blue)}.callout.blue .cl{color:var(--blue)}
+
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:15px;top:20px;bottom:20px;width:1px;background:var(--border);}
+.tl-step{display:flex;gap:1.125rem;margin-bottom:1.75rem;position:relative}
+.tl-num{width:32px;height:32px;flex-shrink:0;background:var(--bg3);border:1px solid var(--border-md);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:var(--lime);position:relative;z-index:1;}
+.tl-body{flex:1;padding-top:5px}
+.tl-when{font-family:'Space Mono',monospace;font-size:9px;color:var(--amber);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:3px;}
+.tl-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.025em;color:var(--white);margin-bottom:6px;}
+.tl-text{font-size:13.5px;color:var(--muted);line-height:1.68;margin-bottom:8px}
+.tl-text strong{color:var(--text-hi);font-weight:600}
+.tl-card{background:var(--bg2);border:1px solid var(--border);padding:12px 14px;margin-top:10px;}
+.tl-card-lbl{font-family:'Space Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;}
+.tl-card-lbl::before{content:'// '}
+.doc-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.doc-list li{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:flex-start;}
+.doc-list li::before{content:'→';color:var(--lime-dim);flex-shrink:0;font-size:10px;margin-top:4px}
+.doc-list li strong{color:var(--text-hi);font-weight:500}
+
+/* BANK CARDS */
+.bank-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-bottom:1.25rem;}
+.bank-card{background:var(--bg2);border:1px solid var(--border);padding:1.125rem;position:relative;transition:border-color 0.12s;}
+.bank-card:hover{border-color:var(--border-md)}
+.bank-card.top{border-top:2px solid var(--lime);}
+.bank-card.ok{border-top:2px solid var(--blue);}
+.bank-card.fallback{border-top:2px solid var(--dim);}
+.bank-badge{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:8px;display:inline-block;padding:2px 8px;border:1px solid;}
+.bank-badge.rec{color:var(--lime);border-color:var(--lime-dim);background:var(--lime-lo);}
+.bank-badge.good{color:var(--blue);border-color:var(--blue-brd);background:var(--blue-lo);}
+.bank-badge.trad{color:var(--muted);border-color:var(--border-md);background:transparent;}
+.bank-name{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:800;text-transform:uppercase;color:var(--white);margin-bottom:3px;letter-spacing:0.03em;}
+.bank-tagline{font-family:'Space Mono',monospace;font-size:9px;color:var(--lime-dim);margin-bottom:10px;letter-spacing:0.04em;}
+.bank-card p{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:6px;}
+.bank-feat{list-style:none;display:flex;flex-direction:column;gap:3px;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);}
+.bank-feat li{font-size:11px;color:var(--muted);display:flex;gap:6px;align-items:flex-start;}
+.bank-feat li::before{content:'✓';color:var(--lime-dim);font-size:9px;margin-top:2px;flex-shrink:0;}
+.bank-feat li.no::before{content:'✗';color:var(--red);}
+.bank-feat li.no{color:var(--dim);}
+
+/* COMPARISON TABLE */
+.table-wrap{background:var(--bg2);border:1px solid var(--border);overflow:hidden;margin-bottom:1rem;}
+table.cmp{width:100%;border-collapse:collapse;font-size:12px;}
+table.cmp thead tr{border-bottom:1px solid var(--border-md);}
+table.cmp th{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);padding:9px 12px;text-align:left;}
+table.cmp td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;line-height:1.5;}
+table.cmp td:first-child{font-weight:600;color:var(--text-hi);white-space:nowrap;}
+table.cmp tr:last-child td{border-bottom:none}
+table.cmp .hi{color:var(--lime);font-weight:600;}
+table.cmp .ok{color:var(--blue);}
+table.cmp .warn{color:var(--amber);}
+table.cmp .no{color:var(--red);}
+
+/* CHECKLIST */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:3px}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);font-size:13.5px;color:var(--muted);cursor:pointer;transition:border-color 0.1s,background 0.1s,opacity 0.15s;user-select:none;}
+.checklist li:hover{border-color:var(--border-md);background:var(--bg3)}
+.checklist li strong{color:var(--text-hi);font-weight:600;transition:color 0.15s}
+.checklist li.checked{opacity:0.5;background:var(--bg);border-color:var(--border);}
+.checklist li.checked strong{color:var(--muted)}
+.checklist li.checked .chk{background:var(--lime);border-color:var(--lime);}
+.checklist li.checked .chk::after{color:#09090a}
+.chk{width:14px;height:14px;flex-shrink:0;margin-top:3px;border:1px solid var(--lime-dim);display:flex;align-items:center;justify-content:center;transition:background 0.15s,border-color 0.15s;}
+.chk::after{content:'✓';font-size:8px;color:var(--lime);font-weight:700}
+.check-progress{font-family:'Space Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.07em;margin-top:10px;transition:color 0.2s;}
+.check-progress.done{color:var(--lime-dim)}
+.check-progress .done-msg{display:none}
+.check-progress.done .done-msg{display:inline}
+.check-progress.done .count-msg{display:none}
+
+/* NOTICE */
+.notice{background:var(--red-lo);border:1px solid var(--red-brd);padding:1.5rem;position:relative;overflow:hidden;}
+.notice::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0.5;}
+.notice-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--red);margin-bottom:0.75rem;}
+.notice-title::before{content:'[ '}
+.notice-title::after{content:' ]'}
+.notice p{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:0.5rem}
+.notice p:last-child{margin:0}
+.notice p strong{color:var(--text-hi);font-weight:600}
+
+hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
+p.body{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;}
+p.body strong{color:var(--text-hi);font-weight:600}
+
+.site-footer{border-top:1px solid var(--border);padding:2rem 2.5rem;max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;position:relative;z-index:1;}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);}
+.footer-logo span{color:var(--lime)}
+.footer-info{font-family:'Space Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.05em;text-align:right;line-height:1.8;}
+.footer-info a{color:var(--lime-dim);text-decoration:none}
+
+@media(max-width:640px){
+  .site-header,.hero,.main{padding-left:1.25rem;padding-right:1.25rem}
+  .hero{padding-top:3rem}
+  .tabs,.bank-grid{max-width:100%}
+  .bank-grid{grid-template-columns:1fr}
+  .hero::before,.hero::after{display:none}
+  .footer-info{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">CONCEPT<span>CORE</span></div>
+  <div class="header-right">
+    <div class="header-tag">// BANKING & MONEY GUIDE 2025–26</div>
+    <div class="live-dot"></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">BANKING & MONEY</div>
+  <h1>GET YOUR<br><span class="g">MONEY</span><br>SORTED.</h1>
+  <p class="hero-sub">You need a French bank account before you can pay rent, apply for CAF, or pay your tuition installments. Here is exactly what to open, when, and why.</p>
+  <p class="tab-label">JUMP TO A SECTION</p>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="sw('accounts')">
+      <span class="ti">Which Account to Open<span class="ts">N26 · Wise · Revolut · Traditional banks</span></span>
+    </button>
+    <button class="tab-btn" onclick="sw('setup')">
+      <span class="ti">Setting Up Step by Step<span class="ts">Order of operations · What you need</span></span>
+    </button>
+    <button class="tab-btn" onclick="sw('money')">
+      <span class="ti">Managing Your Money<span class="ts">Sending · Receiving · CAF · Budget</span></span>
+    </button>
+    <button class="tab-btn" onclick="sw('work')">
+      <span class="ti">Working & Tax<span class="ts">964h rule · Commissions · Tax declaration</span></span>
+    </button>
+  </div>
+</section>
+
+<div class="main">
+<div class="panel-wrap">
+
+<!-- ══════════ ACCOUNTS PANEL ══════════ -->
+<div class="panel active" id="panel-accounts">
+
+  <div class="section">
+    <div class="sec-lbl">The Short Answer</div>
+    <div class="sec-title">Open two accounts.<br>Not one.</div>
+    <div class="callout lime">
+      <div class="cl">The strategy</div>
+      <p>Open <strong>N26 or Revolut first</strong> — you can do it today, from anywhere, in under 10 minutes. This gives you a French IBAN immediately for rent, CAF, and tuition payments. Then open <strong>Wise</strong> to receive money from your family abroad without losing money on exchange rates. Together these two cover everything a student in Paris needs.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-lbl">Recommended Accounts</div>
+    <div class="sec-title">Your options.</div>
+
+    <div class="bank-grid">
+
+      <div class="bank-card top">
+        <div class="bank-badge rec">Open first</div>
+        <div class="bank-name">N26</div>
+        <div class="bank-tagline">// Daily French account</div>
+        <p>German digital bank, fully licensed, gives you a German IBAN (accepted everywhere in France via SEPA). Free standard account. Opens in 10 minutes with just your ID.</p>
+        <ul class="bank-feat">
+          <li>Free account, physical card included</li>
+          <li>European IBAN — accepted for CAF, rent, SEPA</li>
+          <li>English app, 24/7 support</li>
+          <li>Open before arriving in France</li>
+          <li class="no">Cannot receive SWIFT transfers (non-SEPA)</li>
+          <li class="no">No French IBAN — some landlords may ask for one</li>
+        </ul>
+      </div>
+
+      <div class="bank-card top">
+        <div class="bank-badge rec">Open first</div>
+        <div class="bank-name">Revolut</div>
+        <div class="bank-tagline">// Daily + multi-currency</div>
+        <p>Gives a Lithuanian IBAN (SEPA-compliant, accepted across France). Free standard plan. Best if you spend in multiple currencies or travel regularly within Europe.</p>
+        <ul class="bank-feat">
+          <li>Free account, virtual card instant, physical €5</li>
+          <li>SEPA IBAN accepted for rent, CAF, tuition</li>
+          <li>Free currency exchange up to €1,000/month (Standard)</li>
+          <li>Open before arriving in France</li>
+          <li class="no">Weekend currency conversion has small markup (Standard)</li>
+          <li class="no">€200/month free ATM withdrawals then 2% fee</li>
+        </ul>
+      </div>
+
+      <div class="bank-card ok">
+        <div class="bank-badge good">Open alongside</div>
+        <div class="bank-name">Wise</div>
+        <div class="bank-tagline">// Receiving money from abroad</div>
+        <p>Not a bank — a multi-currency account. When your parents send you money from India, Brazil, the US, or anywhere else, Wise charges the mid-market exchange rate with no hidden markup. Dramatically cheaper than a bank transfer.</p>
+        <ul class="bank-feat">
+          <li>French IBAN available</li>
+          <li>Mid-market exchange rate — no hidden fees</li>
+          <li>Receive in 8+ currencies locally</li>
+          <li>Also recommended for paying ConceptCore tuition from abroad</li>
+          <li class="no">€7 one-time card fee</li>
+          <li class="no">Not a full bank — no overdraft, no loans</li>
+        </ul>
+      </div>
+
+      <div class="bank-card fallback">
+        <div class="bank-badge trad">If you need a real French bank</div>
+        <div class="bank-name">BNP Paribas</div>
+        <div class="bank-tagline">// Traditional French bank</div>
+        <p>The only major French traditional bank with a full English interface. Better for long stays, if you need a chequebook, or if your landlord specifically requires a French bank account.</p>
+        <ul class="bank-feat">
+          <li>Full French IBAN</li>
+          <li>English-language website and app</li>
+          <li>Chequebook available</li>
+          <li class="no">Requires in-person visit to open</li>
+          <li class="no">Annual fees ~€25–40/year for student accounts</li>
+          <li class="no">High international transfer fees</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="callout amber">
+      <div class="cl">What about La Banque Postale?</div>
+      <p>La Banque Postale is useful if you have no fixed address yet — they are more flexible about accepting students without a permanent lease. Branches are everywhere in Paris. Good fallback if N26/Revolut are rejected during your visa application for requiring a physical French bank statement.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-lbl">Quick Comparison</div>
+    <div class="sec-title">At a glance.</div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Feature</th><th>N26</th><th>Revolut</th><th>Wise</th><th>BNP Paribas</th></tr></thead>
+        <tbody>
+          <tr><td>Monthly cost</td><td class="hi">Free</td><td class="hi">Free</td><td class="hi">Free</td><td class="warn">€0–40/yr</td></tr>
+          <tr><td>Open remotely</td><td class="hi">Yes</td><td class="hi">Yes</td><td class="hi">Yes</td><td class="no">No — branch visit</td></tr>
+          <tr><td>IBAN type</td><td class="ok">DE (European)</td><td class="ok">LT (European)</td><td class="hi">FR (French)</td><td class="hi">FR (French)</td></tr>
+          <tr><td>SEPA payments (rent, CAF)</td><td class="hi">Yes</td><td class="hi">Yes</td><td class="hi">Yes</td><td class="hi">Yes</td></tr>
+          <tr><td>Receiving foreign transfers</td><td class="warn">Limited</td><td class="ok">Yes, fee after limit</td><td class="hi">Best rates</td><td class="warn">Yes, high fees</td></tr>
+          <tr><td>Language</td><td class="hi">English</td><td class="hi">English</td><td class="hi">English</td><td class="ok">English</td></tr>
+          <tr><td>Open before arrival</td><td class="hi">Yes</td><td class="hi">Yes</td><td class="hi">Yes</td><td class="no">No</td></tr>
+          <tr><td>CAF / APL housing aid eligible</td><td class="hi">Yes</td><td class="hi">Yes</td><td class="hi">Yes</td><td class="hi">Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /accounts -->
+
+<!-- ══════════ SETUP PANEL ══════════ -->
+<div class="panel" id="panel-setup">
+
+  <div class="section">
+    <div class="sec-lbl">Order of Operations</div>
+    <div class="sec-title">Do it in this order.</div>
+    <p class="body">The sequence matters. Opening the wrong account first can cause delays with your visa, your lease, and your CAF application. Follow this order.</p>
+
+    <div class="timeline">
+
+      <div class="tl-step">
+        <div class="tl-num">01</div>
+        <div class="tl-body">
+          <div class="tl-when">Before arriving in France — do this now</div>
+          <div class="tl-title">Open N26 or Revolut</div>
+          <p class="tl-text">Download the app, verify your identity with your passport, and get your IBAN. Takes 10 minutes. You need this IBAN to prove you can receive your CAF housing aid and to set up SEPA payment for your tuition installments. <strong>Do not wait until you arrive in Paris.</strong></p>
+          <div class="tl-card">
+            <div class="tl-card-lbl">What you need to open N26 or Revolut</div>
+            <ul class="doc-list">
+              <li>Valid passport or national ID</li>
+              <li>Email address</li>
+              <li>A phone number (any country)</li>
+              <li>A selfie taken in-app for identity verification</li>
+              <li>No proof of address required for N26/Revolut</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-step">
+        <div class="tl-num">02</div>
+        <div class="tl-body">
+          <div class="tl-when">Before or just after arriving</div>
+          <div class="tl-title">Open Wise for receiving money from abroad</div>
+          <p class="tl-text">If your family will be sending you money from outside France, open Wise now. Share your Wise IBAN/account details with your parents or sponsor. Every time they send money, it converts at the real exchange rate. Over a full year of monthly transfers, this saves significantly compared to a standard bank wire.</p>
+          <div class="tl-card">
+            <div class="tl-card-lbl">Wise vs bank transfer — a real example</div>
+            <ul class="doc-list">
+              <li>Sending €1,000 from India via a standard bank: you might receive €940–960 after fees and poor exchange rates</li>
+              <li>Sending €1,000 from India via Wise: you receive ~€994 after a small transparent fee</li>
+              <li>Over 10 months of transfers, the difference is €300–600 in your pocket</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-step">
+        <div class="tl-num">03</div>
+        <div class="tl-body">
+          <div class="tl-when">Once you have a signed lease</div>
+          <div class="tl-title">Apply for CAF housing aid (APL)</div>
+          <p class="tl-text">Go to <strong>caf.fr</strong>. You need your French IBAN (N26, Revolut, or Wise all work), your lease, and your VLS-TS validation confirmation if you are a non-EU student. Processing takes 2 to 3 months — you will be back-paid for the waiting period, but do not count on this money for your first months.</p>
+          <div class="tl-card">
+            <div class="tl-card-lbl">What CAF needs from you</div>
+            <ul class="doc-list">
+              <li>Signed lease (bail meublé or bail de colocation)</li>
+              <li>French IBAN</li>
+              <li>Proof of enrollment at ConceptCore (Certificate of Enrollment)</li>
+              <li>VLS-TS validation confirmation (non-EU students)</li>
+              <li>Passport / ID</li>
+              <li>Your French address</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-step">
+        <div class="tl-num">04</div>
+        <div class="tl-body">
+          <div class="tl-when">If your landlord or lease agency requires it</div>
+          <div class="tl-title">Open BNP Paribas (if needed)</div>
+          <p class="tl-text">Some traditional landlords and agencies in France prefer or require a French bank account (IBAN starting with FR). In this case, visit a BNP Paribas branch with your passport, enrollment certificate, and proof of address. Bring your Garantme or Visale certificate too. Open the student account (Compte Étudiant) which has lower fees.</p>
+        </div>
+      </div>
+
+      <div class="tl-step">
+        <div class="tl-num">05</div>
+        <div class="tl-body">
+          <div class="tl-when">Ongoing — set up once, forget about it</div>
+          <div class="tl-title">Set up SEPA direct debit for tuition</div>
+          <p class="tl-text">ConceptCore uses GoCardless (via Pennylane) for EU students on a payment plan. Your first mandate activation takes <strong>5 to 6 business days</strong> — set this up well before your first installment date (September 5). Use the IBAN from N26, Revolut, or any EU bank account.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <div class="sec-lbl">Your Setup Checklist</div>
+      <div class="sec-title">Track your progress.</div>
+      <ul class="checklist" id="cl-banking">
+        <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>N26 or Revolut account opened</strong>. IBAN saved and accessible.</div></li>
+        <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Wise account opened</strong> (especially if receiving money from outside the Eurozone).</div></li>
+        <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Family / sponsor has your Wise account details</strong> for sending monthly support.</div></li>
+        <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>IBAN shared with ConceptCore</strong> for SEPA direct debit setup. Done at least 7 days before first payment date.</div></li>
+        <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>CAF application submitted</strong> once lease is signed. caf.fr.</div></li>
+        <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Civil liability insurance paid</strong> (~€30–60/year). Required before Day 1 at ConceptCore.</div></li>
+      </ul>
+      <div class="check-progress" id="prog-banking"><span class="count-msg">// <span class="count">0</span> / 6 DONE</span><span class="done-msg">// ALL SET ✓</span></div>
+    </div>
+
+  </div>
+</div><!-- /setup -->
+
+<!-- ══════════ MONEY PANEL ══════════ -->
+<div class="panel" id="panel-money">
+
+  <div class="section">
+    <div class="sec-lbl">Receiving Money from Abroad</div>
+    <div class="sec-title">How to get money<br>from your family.</div>
+    <div class="callout lime">
+      <div class="cl">Always use Wise</div>
+      <p>Tell your family to use <strong>Wise</strong> (wise.com) to send you money. They send from their local bank account, it arrives in your Wise account, and you move it to N26 for spending. The mid-market exchange rate means you lose almost nothing on conversion. Standard bank wires can cost 3 to 8% in hidden exchange fees — on €1,000/month that is €360–960 lost per year for no reason.</p>
+    </div>
+    <div class="tl-card" style="margin-bottom:0.875rem">
+      <div class="tl-card-lbl">How to receive money — step by step for your family</div>
+      <ul class="doc-list">
+        <li>Your family creates a free Wise account at wise.com</li>
+        <li>They enter your Wise IBAN as the recipient</li>
+        <li>They send in their local currency (USD, INR, BRL, etc.)</li>
+        <li>You receive euros in your Wise account, usually within minutes</li>
+        <li>Transfer to N26 for daily spending via free SEPA transfer</li>
+      </ul>
+    </div>
+    <div class="callout amber">
+      <div class="cl">For non-EU visa applicants</div>
+      <p>Wise can generate a European IBAN for you before you arrive in France. This is the IBAN recommended by ConceptCore in the visa guide for proving financial resources — the consulate sees a real account balance, not a promise. See the visa guide for full details on financial proof requirements.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-lbl">Monthly Budget Reality</div>
+    <div class="sec-title">What Paris actually costs.</div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Expense</th><th>Tight budget</th><th>Comfortable</th></tr></thead>
+        <tbody>
+          <tr><td>Rent (studio or room)</td><td class="warn">€650–750</td><td class="warn">€750–950</td></tr>
+          <tr><td>Food (cooking at home)</td><td>€150–200</td><td>€200–300</td></tr>
+          <tr><td>Navigo Mois / Imagine R</td><td>~€30 (Imagine R)</td><td>~€86 (Navigo Mois)</td></tr>
+          <tr><td>Phone plan (SIM)</td><td>€10–15</td><td>€20–25</td></tr>
+          <tr><td>Art supplies / misc</td><td>€30–50</td><td>€50–100</td></tr>
+          <tr><td>Social life (eating out, events)</td><td>€50–100</td><td>€100–200</td></tr>
+          <tr><td><strong>Total (excl. tuition)</strong></td><td class="hi">~€920–1,100</td><td class="hi">~€1,200–1,600</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout blue">
+      <div class="cl">CAF / APL reduces your rent</div>
+      <p>Once your CAF application is processed (2 to 3 months), you receive monthly housing aid credited directly to your account. Typical amount is <strong>€50 to €200/month</strong> depending on your rent and situation. It is back-paid — so your first payment covers the months you waited. Do not budget with this money for months 1 and 2.</p>
+    </div>
+    <div class="callout lime">
+      <div class="cl">Student discounts — use them</div>
+      <p>Your ConceptCore student card unlocks significant savings in Paris. Free entry to all French national museums for under 26 (Louvre, Pompidou, Orsay — free, all year). Half-price cinema tickets. Student rates at most theatres and exhibitions. Reduced rate at university cafeterias (Crous) near the campus. These add up to €50–100/month in savings if you use them actively.</p>
+    </div>
+  </div>
+
+</div><!-- /money -->
+
+<!-- ══════════ WORK PANEL ══════════ -->
+<div class="panel" id="panel-work">
+
+  <div class="section">
+    <div class="sec-lbl">Working While Studying</div>
+    <div class="sec-title">The 964-hour rule.</div>
+    <div class="callout lime">
+      <div class="cl">For EU / EEA / Swiss students</div>
+      <p>No restrictions. You can work as much as you want, in any capacity — salaried or freelance. The 964-hour rule does not apply to you. You can register as an auto-entrepreneur (micro-entrepreneur) to take commissions immediately.</p>
+    </div>
+    <div class="callout amber">
+      <div class="cl">For non-EU students on a VLS-TS</div>
+      <p>You are authorized to work <strong>up to 964 hours per year</strong> in salaried employment. This is roughly 18.5 hours per week, or 60% of a full-time annual schedule. The counter starts from your VLS-TS validation date and resets when your permit is renewed.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-lbl">The 964h Rule — Details</div>
+    <div class="sec-title">What counts. What doesn't.</div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Type of work</th><th>Counts toward 964h?</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Salaried part-time job</td><td class="warn">Yes</td><td>Café, retail, admin, studio assistant, etc.</td></tr>
+          <tr><td>Mandatory internship (convention de stage)</td><td class="hi">No</td><td>Must be signed by ConceptCore + host company</td></tr>
+          <tr><td>Freelance / commissions (auto-entrepreneur)</td><td class="no">Not permitted for non-EU students</td><td>See notice below</td></tr>
+          <tr><td>Volunteer work</td><td class="hi">No</td><td>Unpaid voluntary activity not counted</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="notice">
+      <div class="notice-title">Non-EU students cannot freelance on a student visa</div>
+      <p>This is a common misunderstanding. <strong>Non-EU students on a VLS-TS cannot register as a micro-entrepreneur (auto-entrepreneur)</strong> or take freelance commissions while on a student permit. This applies even if the work is done remotely for a foreign client and paid into a foreign account. Violating this risks non-renewal of your residence permit.</p>
+      <p>If you want to take commissions during your studies, you need to either complete your studies first and transition to a work permit, or seek specific legal advice. The ConceptCore Aftercare program and graduation show are designed to help you do this properly after graduation.</p>
+    </div>
+
+    <div class="callout blue">
+      <div class="cl">Mandatory internships are protected</div>
+      <p>If ConceptCore requires an internship as part of your program, the hours worked during that internship do <strong>not</strong> count toward your 964-hour limit. The internship must be covered by a signed three-party agreement (<em>convention de stage</em>) between you, ConceptCore, and the host studio. Internships over 2 months must be paid a minimum of ~€650/month. This income is tax-exempt up to €20,815/year.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-lbl">Tax in France</div>
+    <div class="sec-title">Yes, you need to file.</div>
+    <p class="body">Everyone who lives in France must file an income tax declaration each spring — even if you had zero income. This is important: a clean tax declaration history makes everything easier when renewing your residence permit and applying for long-term status later.</p>
+
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-num">01</div>
+        <div class="tl-body">
+          <div class="tl-when">Spring (April–June) every year</div>
+          <div class="tl-title">File your tax declaration online</div>
+          <p class="tl-text">Go to <strong>impots.gouv.fr</strong>. Create an account with your French address and passport. If you had no income, file a zero-income declaration. If you worked, declare your gross earnings. First-time filers receive a paper letter with a numéro fiscal (tax ID) — keep this safe.</p>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">02</div>
+        <div class="tl-body">
+          <div class="tl-when">What counts as income</div>
+          <div class="tl-title">Know what to declare</div>
+          <div class="tl-card">
+            <div class="tl-card-lbl">Income types</div>
+            <ul class="doc-list">
+              <li><strong>Salaried wages (salaire)</strong> — declared automatically by your employer via your payslip. You confirm the amount.</li>
+              <li><strong>Mandatory internship income up to €20,815</strong> — tax exempt, but still declare it in the exemption section</li>
+              <li><strong>Scholarships or grants</strong> — declare as exempt income</li>
+              <li><strong>Money sent from family</strong> — not income, not declared</li>
+              <li><strong>CAF/APL housing aid</strong> — not income, not declared</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">03</div>
+        <div class="tl-body">
+          <div class="tl-when">After filing</div>
+          <div class="tl-title">Save your avis d'imposition</div>
+          <p class="tl-text">After your declaration is processed, you receive an <strong>avis d'imposition</strong> (tax assessment notice). Save this document — landlords, banks, and the préfecture will ask for it when you renew your residence permit. Download it from impots.gouv.fr and keep a PDF.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout amber">
+      <div class="cl">The minimum wage in France (SMIC) — 2025</div>
+      <p>As of January 2025, the gross minimum wage is <strong>€11.65/hour</strong>. After social security deductions (~20%), you take home approximately <strong>€9.22/hour net</strong>. A student working 10 hours/week at minimum wage earns about €92 net/week. Working the full 964 hours at minimum wage earns approximately <strong>€8,884 net for the year</strong>.</p>
+    </div>
+  </div>
+
+</div><!-- /work -->
+
+</div><!-- /panel-wrap -->
+
+<hr class="div">
+
+<div class="section">
+  <div class="sec-lbl">Questions</div>
+  <div class="sec-title">We're here.</div>
+  <ul class="checklist">
+    <li onclick="toggleCheck(this)"><span class="chk"></span><div>All inquiries — <strong>academy@conceptcore.co</strong></div></li>
+    <li onclick="toggleCheck(this)"><span class="chk"></span><div>Website — <strong>www.conceptcore.co</strong></div></li>
+  </ul>
+</div>
+
+</div><!-- /main -->
+
+<footer class="site-footer">
+  <div class="footer-logo">CONCEPT<span>CORE</span></div>
+  <div class="footer-info">
+    23–25 AVE. JEANNE D'ARC · 94110 ARCUEIL<br>
+    <a href="mailto:academy@conceptcore.co">ACADEMY@CONCEPTCORE.CO</a> · WWW.CONCEPTCORE.CO<br>
+    BANKING INFO ACCURATE AS OF EARLY 2026 — VERIFY FEES WITH PROVIDERS
+  </div>
+</footer>
+
+<script>
+const PANELS={accounts:'panel-accounts',setup:'panel-setup',money:'panel-money',work:'panel-work'};
+const ORDER=['accounts','setup','money','work'];
+function sw(t){
+  Object.values(PANELS).forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(PANELS[t]).classList.add('active');
+  document.querySelectorAll('.tab-btn')[ORDER.indexOf(t)].classList.add('active');
+  document.querySelector('.panel-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function toggleCheck(el){el.classList.toggle('checked');updateProgress();}
+function updateProgress(){
+  const list=document.getElementById('cl-banking');
+  const prog=document.getElementById('prog-banking');
+  if(list&&prog){
+    const total=list.querySelectorAll('li').length;
+    const done=list.querySelectorAll('li.checked').length;
+    prog.querySelector('.count').textContent=done;
+    prog.classList.toggle('done',done===total);
+  }
+}
+updateProgress();
+</script>
+</body>
+</html>
