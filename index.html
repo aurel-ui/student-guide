@@ -467,9 +467,10 @@ body::after{
 .doc-list{list-style:none;display:flex;flex-direction:column;gap:5px}
 .doc-list li{
   font-size:13px;color:var(--muted);
-  display:flex;gap:8px;align-items:flex-start;
+  position:relative;padding-left:18px;
+  line-height:1.65;
 }
-.doc-list li::before{content:'→';color:var(--lime-dim);flex-shrink:0;font-size:10px;margin-top:4px}
+.doc-list li::before{content:'→';color:var(--lime-dim);font-size:10px;position:absolute;left:0;top:6px}
 .doc-list li strong{color:var(--text-hi);font-weight:500}
 
 /* ─── FINANCIAL TABLE ─── */
