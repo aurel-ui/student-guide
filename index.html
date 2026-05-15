@@ -1297,6 +1297,16 @@ function updateProgress() {
 }
 
 updateProgress();
+
+// ── INITIAL TAB FROM ?tab= OR #tab ──
+(function(){
+  const valid = ['eu','noneu','grad'];
+  const params = new URLSearchParams(location.search);
+  const fromQuery = params.get('tab');
+  const fromHash = location.hash.replace('#','');
+  const initial = valid.includes(fromQuery) ? fromQuery : (valid.includes(fromHash) ? fromHash : null);
+  if (initial && initial !== 'eu') sw(initial);
+})();
 </script>
 </body>
 </html>
