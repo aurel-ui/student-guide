@@ -464,6 +464,44 @@ body::after{
   letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;
 }
 .tl-card-lbl::before{content:'// '}
+/* ─── SCREENSHOT TOGGLE ─── */
+.screenshot-toggle{
+  margin-top:14px;
+  border:1px solid var(--border);
+  background:var(--bg2);
+}
+.screenshot-toggle summary{
+  font-family:'Space Mono',monospace;
+  font-size:9px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--lime-dim);
+  padding:11px 14px;
+  cursor:pointer;
+  user-select:none;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:8px;
+  list-style:none;
+  transition:color 0.12s,background 0.12s;
+}
+.screenshot-toggle summary::-webkit-details-marker{display:none}
+.screenshot-toggle summary::before{content:'// '}
+.screenshot-toggle summary::after{
+  content:'▾';
+  font-size:10px;color:var(--dim);
+  transition:transform 0.2s,color 0.12s;
+}
+.screenshot-toggle summary:hover{color:var(--lime);background:var(--bg3)}
+.screenshot-toggle summary:hover::after{color:var(--lime)}
+.screenshot-toggle[open] summary{
+  color:var(--lime);
+  border-bottom:1px solid var(--border);
+}
+.screenshot-toggle[open] summary::after{
+  transform:rotate(180deg);color:var(--lime);
+}
+.screenshot-toggle img{
+  display:block;width:100%;height:auto;
+}
+
 .doc-list{list-style:none;display:flex;flex-direction:column;gap:5px}
 .doc-list li{
   font-size:13px;color:var(--muted);
@@ -792,6 +830,11 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
           <div class="tl-title">Études en France / Campus France Procedure</div>
           <p class="tl-text">Required pre-consular step if you reside in one of the <strong>73 EEF-listed countries</strong>. Confirm whether EEF applies to you using the <strong>"Dois-je candidater par Études en France?"</strong> selector on the homepage of <strong>pastel.diplomatie.gouv.fr/etudesenfrance</strong>. <strong>If your country is not on the EEF list, skip directly to Step 03.</strong></p>
           <p class="tl-text" style="margin-top:8px">ConceptCore is currently a <strong>non-connected establishment</strong> in EEF (we'll join the connected catalogue once the Code UAI is active). The EEF platform fully supports this case — the actions live <strong>inside your candidate dashboard, not on the public landing page</strong>.</p>
+
+          <details class="screenshot-toggle">
+            <summary>Visual reference · expand to see the full Step 02 flow</summary>
+            <img src="screenshots/step-02-reference.png" alt="Step 02 EEF procedure visual reference showing all cards from Create candidate account through After submission" loading="lazy">
+          </details>
 
           <div class="tl-card">
             <div class="tl-card-lbl">1 · Create your candidate account</div>
@@ -1305,7 +1348,18 @@ updateProgress();
   const fromQuery = params.get('tab');
   const fromHash = location.hash.replace('#','');
   const initial = valid.includes(fromQuery) ? fromQuery : (valid.includes(fromHash) ? fromHash : null);
-  if (initial && initial !== 'eu') sw(initial);
+  if (initial && initial !== 'eu') {
+    // Suppress sw()'s scrollIntoView so deep-link lands at top of page
+    const origScroll = Element.prototype.scrollIntoView;
+    Element.prototype.scrollIntoView = function(){};
+    sw(initial);
+    Element.prototype.scrollIntoView = origScroll;
+  }
+  if (params.get('uai') === 'open') {
+    document.getElementById('uai-banner').classList.add('open');
+    const hint = document.querySelector('.count-expand');
+    if (hint) hint.textContent = 'COLLAPSE';
+  }
 })();
 </script>
 </body>
