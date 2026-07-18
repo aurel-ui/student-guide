@@ -4,821 +4,438 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>International Student Guide — ConceptCore Academy</title>
+<meta name="description" content="Visa, Campus France and arrival roadmap for ConceptCore Academy students. EU and non-EU paths, plus staying in France after graduation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Barlow+Condensed:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Doto:wght@700;900&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:        #09090a;
-  --bg2:       #101012;
-  --bg3:       #161618;
-  --bg4:       #1c1c1f;
-  --border:    rgba(255,255,255,0.06);
-  --border-md: rgba(255,255,255,0.10);
-  --border-hi: rgba(255,255,255,0.16);
-  --lime:      #b4f000;
-  --lime-lo:   rgba(180,240,0,0.07);
-  --lime-dim:  #78a800;
-  --amber:     #e09020;
-  --amber-lo:  rgba(224,144,32,0.08);
-  --amber-brd: rgba(224,144,32,0.24);
-  --red:       #d04848;
-  --red-lo:    rgba(208,72,72,0.07);
-  --red-brd:   rgba(208,72,72,0.24);
-  --blue:      #4890c8;
-  --blue-lo:   rgba(72,144,200,0.07);
-  --blue-brd:  rgba(72,144,200,0.22);
-  --text:      #d8dcd0;
-  --text-hi:   #eceee6;
-  --muted:     #686c62;
-  --dim:       #3c3e38;
-  --white:     #f0f2ea;
+:root{
+  --paper:#e9e7e0;
+  --panel:#f6f5f1;
+  --ink:#141414;
+  --muted:#5c5a54;
+  --dim:#8a877e;
+  --hair:#cfccc2;
+  --line:#141414;
+  --lime:#ced600;
+  --lime-dark:#6b7000;
+  --red:#b2352c;
+  --red-bg:#f0dedb;
+  --amber:#9a6b10;
+  --amber-bg:#efe4cd;
+  --blue:#2b5d8c;
+  --blue-bg:#dde5eb;
+  --lime-bg:#e7ead2;
 }
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Golos Text',sans-serif;
-  font-size:15px;line-height:1.75;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Geist',sans-serif;
+  font-size:14px;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
+::selection{background:var(--lime);color:var(--ink)}
+a{color:inherit}
 
-/* ─── GRID BACKGROUND ─── */
-body::after{
-  content:'';
-  position:fixed;inset:0;
-  background-image:
-    linear-gradient(rgba(180,240,0,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(180,240,0,0.025) 1px, transparent 1px);
-  background-size:40px 40px;
-  pointer-events:none;z-index:0;
-}
+.mono{font-family:'Geist Mono',monospace}
 
-/* ─── HEADER ─── */
-.site-header{
-  border-bottom:1px solid var(--border);
-  padding:1rem 2.5rem;
-  display:flex;align-items:center;justify-content:space-between;
-  position:sticky;top:0;
-  background:rgba(9,9,10,0.97);
-  backdrop-filter:blur(16px);
-  z-index:100;
-  position:relative;
+/* ─── TOPBAR ─── */
+.topbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 24px;border-bottom:1px solid var(--line);
+  font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;
+  position:sticky;top:0;background:var(--paper);z-index:50;
 }
-.logo{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:800;font-size:17px;
-  letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--white);
+.topbar .tb-brand{font-weight:700}
+.topbar .tb-brand span{color:var(--lime-dark)}
+.topbar .tb-mid{color:var(--dim);display:none}
+@media(min-width:720px){.topbar .tb-mid{display:block}}
+.topbar .tb-chip{
+  background:var(--lime);color:var(--ink);
+  padding:4px 10px;font-weight:700;border:1px solid var(--line);
 }
-.logo span{color:var(--lime)}
-.header-right{display:flex;align-items:center;gap:14px}
-.header-tag{
-  font-family:'Space Mono',monospace;
-  font-size:9px;color:var(--dim);
-  letter-spacing:0.08em;text-transform:uppercase;
-}
-.live-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--amber);
-  animation:pulse 2.5s ease-in-out infinite;
-}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.8)}}
 
 /* ─── HERO ─── */
-.hero{
-  padding:4.5rem 2.5rem 0;
-  max-width:980px;margin:0 auto;
-  position:relative;z-index:1;
-}
-.hero::before,.hero::after{
-  content:'';position:absolute;width:18px;height:18px;
-}
-.hero::before{top:3.25rem;left:2.5rem;border-top:1px solid var(--lime-dim);border-left:1px solid var(--lime-dim)}
-.hero::after{top:3.25rem;right:2.5rem;border-top:1px solid var(--lime-dim);border-right:1px solid var(--lime-dim)}
-
-.hero-layout{max-width:780px}
-
+.hero{padding:56px 24px 40px;max-width:1080px;margin:0 auto}
 .eyebrow{
-  font-family:'Space Mono',monospace;
-  font-size:9px;color:var(--lime-dim);
-  letter-spacing:0.12em;text-transform:uppercase;
-  margin-bottom:1rem;
+  font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:14px;
 }
 .eyebrow::before{content:'// '}
-
-.hero h1{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:clamp(4.5rem,9vw,8rem);
-  font-weight:800;text-transform:uppercase;
-  letter-spacing:0.01em;line-height:0.9;
-  color:var(--white);margin-bottom:1.5rem;
+h1{
+  font-family:'Anton',sans-serif;font-weight:400;
+  font-size:clamp(44px,9vw,96px);
+  line-height:.98;text-transform:uppercase;letter-spacing:.005em;
 }
-.hero h1 .g{color:var(--lime)}
+h1 .slash{color:var(--lime);-webkit-text-stroke:1.5px var(--ink)}
+.hero-sub{max-width:520px;color:var(--muted);margin:18px 0 32px;font-size:15px}
 
-.hero-sub{
-  font-size:15px;color:var(--muted);
-  max-width:520px;line-height:1.7;
-  margin-bottom:2.75rem;
-}
-
-/* ─── AUDIENCE SWITCH — GAME MENU STYLE ─── */
-.sw-label{
-  font-family:'Space Mono',monospace;
-  font-size:9px;color:var(--dim);
-  letter-spacing:0.1em;text-transform:uppercase;
-  margin-bottom:14px;
-}
+/* situation selector — "year cards" */
+.sw-label{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
 .sw-label::before{content:'// '}
-.aud-sw{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-  max-width:460px;
-  margin-bottom:3.5rem;
-}
+.aud-sw{display:grid;grid-template-columns:1fr;gap:10px;max-width:820px}
+@media(min-width:720px){.aud-sw{grid-template-columns:repeat(3,1fr)}}
 .sw-btn{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1.25rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:0.06em;
-  padding:16px 28px;
-  border:1px solid var(--border-md);
-  background:var(--bg2);
-  color:var(--muted);
-  cursor:pointer;
-  transition:all 0.12s;
-  text-align:left;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1rem;
-}
-.sw-btn::before{content:'[';font-family:'Space Mono',monospace;font-size:14px;color:var(--dim);font-weight:400}
-.sw-btn::after{content:']';font-family:'Space Mono',monospace;font-size:14px;color:var(--dim);font-weight:400}
-.sw-btn .btn-inner{flex:1}
-.sw-btn .btn-sub{
-  display:block;
-  font-family:'Space Mono',monospace;
-  font-size:9px;font-weight:400;
-  letter-spacing:0.07em;
-  opacity:0.5;margin-top:2px;
-  text-transform:uppercase;
-}
-.sw-btn:hover:not(.active){
-  border-color:var(--border-hi);
-  color:var(--text-hi);
-  background:var(--bg3);
-}
-.sw-btn:hover:not(.active)::before,
-.sw-btn:hover:not(.active)::after{color:var(--text-hi)}
-.sw-btn.active{
-  background:var(--lime);
-  color:#09090a;
-  border-color:var(--lime);
-}
-.sw-btn.active::before,
-.sw-btn.active::after{color:rgba(0,0,0,0.4)}
-.sw-btn.active .btn-sub{opacity:0.55}
-
-/* ─── MAIN ─── */
-.main{max-width:980px;margin:0 auto;padding:0 2.5rem 6rem;position:relative;z-index:1}
-
-/* ─── UAI BANNER — COLLAPSIBLE ─── */
-.uai-banner{
-  margin:2.5rem 0 0;
-  border:1px solid var(--amber-brd);
-  background:var(--amber-lo);
-  position:relative;overflow:hidden;
-}
-.uai-banner::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--amber),transparent);
-  opacity:0.6;
-}
-.uai-top{
-  padding:0.875rem 1.5rem;
-  border-bottom:1px solid var(--amber-brd);
-  display:flex;align-items:center;gap:10px;
-  cursor:pointer;
-  user-select:none;
-  transition:background 0.12s;
-}
-.uai-top:hover{background:rgba(224,144,32,0.06)}
-.uai-pulse{
-  width:7px;height:7px;border-radius:50%;
-  background:var(--amber);flex-shrink:0;
-  animation:pulse 2s ease-in-out infinite;
-}
-.uai-lbl{
-  font-family:'Space Mono',monospace;
-  font-size:9px;color:var(--amber);
-  letter-spacing:0.1em;text-transform:uppercase;
-}
-.uai-lbl::before{content:'// '}
-.uai-badge{
-  font-family:'Space Mono',monospace;font-size:9px;
-  letter-spacing:0.07em;text-transform:uppercase;
-  color:var(--amber);border:1px solid var(--amber-brd);
-  padding:3px 10px;
-}
-.uai-hint{
-  margin-left:auto;
-  font-family:'Space Mono',monospace;font-size:9px;
-  color:var(--dim);letter-spacing:0.06em;text-transform:uppercase;
-  display:flex;align-items:center;gap:6px;
-  transition:color 0.12s;
-}
-.uai-top:hover .uai-hint{color:var(--muted)}
-.uai-arrow{
-  display:inline-block;
-  transition:transform 0.25s ease;
-  font-size:10px;
-}
-.uai-banner.open .uai-arrow{transform:rotate(180deg)}
-
-.uai-body{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1),
-             padding 0.25s ease,
-             opacity 0.25s ease;
-  opacity:0;
-  padding:0 1.5rem;
-}
-.uai-banner.open .uai-body{
-  max-height:600px;
-  opacity:1;
-  padding:1.5rem;
-}
-.uai-intro{
-  font-size:14px;color:var(--text);line-height:1.7;
-  padding-bottom:1.5rem;margin-bottom:1.5rem;
-  border-bottom:1px solid var(--border);
-}
-.uai-intro strong{color:var(--white)}
-
-/* ─── UAI TIMELINE ─── */
-.uai-tl{display:flex;flex-direction:column}
-.uai-row{display:flex;gap:0;position:relative}
-.uai-l{
-  display:flex;flex-direction:column;align-items:center;
-  width:28px;flex-shrink:0;
-}
-.uai-dot{
-  width:10px;height:10px;
-  border:1px solid var(--border-md);
-  background:var(--bg2);flex-shrink:0;
-  margin-top:4px;position:relative;z-index:1;
-}
-.uai-dot.active{
-  background:var(--amber);border-color:var(--amber);
-  box-shadow:0 0 10px rgba(224,144,32,0.5);
-}
-.uai-dot.done{background:var(--lime-dim);border-color:var(--lime-dim)}
-.uai-line{width:1px;flex:1;background:var(--border);margin:3px 0}
-.uai-row:last-child .uai-line{display:none}
-.uai-c{padding:0 0 1.5rem 1rem;flex:1}
-.uai-tag{
-  font-family:'Space Mono',monospace;
-  font-size:9px;letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--amber);margin-bottom:3px;
-}
-.uai-tag.pd{color:var(--dim)}
-.uai-ttl{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.03em;color:var(--white);margin-bottom:2px;
-}
-.uai-date{
-  font-family:'Space Mono',monospace;
-  font-size:9px;color:var(--muted);margin-bottom:5px;
-}
-.uai-txt{font-size:13px;color:var(--muted);line-height:1.6}
-
-/* ─── PANEL TRANSITIONS ─── */
-.eu-panel,.noneu-panel,.grad-panel{
-  display:block;
-  opacity:0;
-  transform:translateY(8px);
-  transition:opacity 0.22s ease, transform 0.22s ease;
-  pointer-events:none;
-  position:absolute;
-  width:100%;
-}
-.eu-panel.active,.noneu-panel.active,.grad-panel.active{
-  opacity:1;transform:translateY(0);
-  pointer-events:all;
+  text-align:left;cursor:pointer;
+  border:1px solid var(--line);background:var(--panel);
+  padding:16px 16px 14px;
+  font-family:'Geist',sans-serif;
+  transition:transform .12s ease, background .12s ease;
   position:relative;
 }
-.panel-wrap{position:relative;min-height:200px}
+.sw-btn:hover{transform:translateY(-2px)}
+.sw-btn .bt-tag{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:6px}
+.sw-btn .bt-name{font-family:'Anton',sans-serif;font-size:20px;text-transform:uppercase;letter-spacing:.02em;display:block}
+.sw-btn .bt-sub{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-top:6px}
+.sw-btn.active{background:var(--ink);color:var(--paper)}
+.sw-btn.active .bt-tag{color:var(--lime)}
+.sw-btn.active .bt-sub{color:#b7b4aa}
+.sw-btn.active::after{
+  content:'ACTIVE';position:absolute;top:16px;right:14px;
+  font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:.12em;
+  background:var(--lime);color:var(--ink);padding:2px 7px;font-weight:700;
+}
 
-/* ─── 3-button selector ─── */
-.aud-sw{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-  max-width:460px;
-  margin-bottom:3.5rem;
-}
-.checklist{list-style:none;display:flex;flex-direction:column;gap:3px}
-.checklist li{
-  display:flex;align-items:flex-start;gap:10px;
-  padding:10px 14px;
-  background:var(--bg2);
-  border:1px solid var(--border);
-  font-size:13.5px;color:var(--muted);
-  cursor:pointer;
-  transition:border-color 0.1s,background 0.1s,opacity 0.15s;
-  user-select:none;
-}
-.checklist li:hover{border-color:var(--border-md);background:var(--bg3)}
-.checklist li strong{color:var(--text-hi);font-weight:600;transition:color 0.15s}
-.checklist li.checked{
-  opacity:0.5;
-  background:var(--bg);
-  border-color:var(--border);
-}
-.checklist li.checked strong{color:var(--muted)}
-.checklist li.checked .chk{
-  background:var(--lime);
-  border-color:var(--lime);
-}
-.checklist li.checked .chk::after{color:#09090a}
-.chk{
-  width:14px;height:14px;flex-shrink:0;margin-top:3px;
-  border:1px solid var(--lime-dim);
-  display:flex;align-items:center;justify-content:center;
-  transition:background 0.15s,border-color 0.15s;
-}
-.chk::after{content:'✓';font-size:8px;color:var(--lime);font-weight:700}
+/* ─── LAYOUT ─── */
+.main{max-width:1080px;margin:0 auto;padding:0 24px 40px}
 
-/* ─── CHECKED COUNTER ─── */
-.check-progress{
-  font-family:'Space Mono',monospace;font-size:9px;
-  color:var(--dim);letter-spacing:0.07em;
-  margin-top:10px;
-  transition:color 0.2s;
+/* ─── UAI STRIP ─── */
+.uai-strip{
+  border:1px solid var(--line);background:var(--panel);
+  padding:16px 18px;margin:8px 0 40px;
 }
-.check-progress.done{color:var(--lime-dim)}
-.check-progress .done-msg{display:none}
-.check-progress.done .done-msg{display:inline}
-.check-progress.done .count-msg{display:none}
+.uai-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.uai-sq{width:12px;height:12px;background:var(--lime);border:1px solid var(--line);flex:none}
+.uai-lbl{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.uai-lbl::before{content:'// '}
+.uai-chip{
+  font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;
+  background:var(--ink);color:var(--lime);padding:3px 10px;font-weight:700;
+}
+.uai-note{color:var(--muted);font-size:13px;margin-top:10px;max-width:840px}
+.uai-miles{
+  display:grid;grid-template-columns:1fr;gap:6px;margin-top:12px;
+  font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.04em;
+}
+@media(min-width:720px){.uai-miles{grid-template-columns:repeat(3,1fr)}}
+.uai-mile{border-top:2px solid var(--lime);padding-top:6px;color:var(--muted)}
+.uai-mile b{color:var(--ink);display:block;font-weight:700}
 
-/* ─── SECTION ─── */
-.section{margin-bottom:3.5rem;padding-top:2.5rem}
-.sec-lbl{
-  font-family:'Space Mono',monospace;
-  font-size:9px;color:var(--lime-dim);
-  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;
-}
+/* ─── SECTIONS ─── */
+.section{margin:0 0 44px}
+.sec-head{border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px}
+.sec-lbl{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .sec-lbl::before{content:'// '}
 .sec-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1.85rem;font-weight:800;
-  text-transform:uppercase;letter-spacing:0.025em;
-  color:var(--white);margin-bottom:1.25rem;line-height:1.0;
+  font-family:'Anton',sans-serif;font-weight:400;
+  font-size:clamp(26px,4.5vw,40px);text-transform:uppercase;line-height:1.05;
 }
 
-/* ─── CALLOUTS ─── */
-.callout{
-  padding:1rem 1.25rem;
-  margin-bottom:0.875rem;
-  border-left:2px solid;
+/* ─── STEPS ─── */
+.tl-step{
+  display:flex;gap:0;border:1px solid var(--line);background:var(--panel);
+  margin-bottom:14px;
 }
+.tl-num{
+  flex:none;width:64px;background:var(--ink);color:var(--paper);
+  font-family:'Anton',sans-serif;font-size:26px;
+  display:flex;align-items:flex-start;justify-content:center;padding-top:18px;
+}
+.tl-body{padding:18px 20px 20px;flex:1;min-width:0}
+.tl-when{
+  font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:5px;
+}
+.tl-title{font-size:18px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;text-transform:uppercase}
+.tl-text{color:var(--muted);font-size:13.5px}
+.tl-text strong{color:var(--ink)}
+.tl-text+.tl-text{margin-top:8px}
+
+/* sub-cards */
+.tl-card{border:1px solid var(--line);background:#fff;margin-top:12px}
+.tl-card-lbl{
+  font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:700;
+  padding:8px 12px;border-bottom:1px solid var(--hair);
+  background:var(--panel);
+}
+.tl-card-lbl::before{content:'// '}
+.doc-list{list-style:none;padding:10px 12px}
+.doc-list li{
+  font-size:13px;color:var(--muted);position:relative;
+  padding:3px 0 3px 18px;line-height:1.55;
+}
+.doc-list li::before{content:'→';color:var(--lime-dark);font-size:11px;position:absolute;left:0;top:5px}
+.doc-list li strong{color:var(--ink)}
+.doc-list li em{color:var(--ink);font-style:italic}
+
+/* ─── CALLOUTS ─── */
+.callout{border:1px solid var(--line);border-left:4px solid var(--line);padding:12px 16px;margin-top:12px;background:#fff}
 .callout .cl{
-  font-family:'Space Mono',monospace;
-  font-size:9px;font-weight:700;
-  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;
+  font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:700;margin-bottom:6px;
 }
 .callout .cl::before{content:'[ '}
 .callout .cl::after{content:' ]'}
-.callout p{font-size:13.5px;color:var(--muted);line-height:1.68}
-.callout p strong{color:var(--text-hi);font-weight:600}
-.callout.lime{background:var(--lime-lo);border-color:var(--lime-dim)}
-.callout.lime .cl{color:var(--lime)}
-.callout.amber{background:var(--amber-lo);border-color:var(--amber)}
+.callout p{color:var(--muted);font-size:13px}
+.callout p strong{color:var(--ink)}
+.callout p+p{margin-top:7px}
+.callout ul{margin:4px 0 0}
+.callout.lime{border-left-color:var(--lime-dark);background:var(--lime-bg)}
+.callout.lime .cl{color:var(--lime-dark)}
+.callout.amber{border-left-color:var(--amber);background:var(--amber-bg)}
 .callout.amber .cl{color:var(--amber)}
-.callout.red{background:var(--red-lo);border-color:var(--red)}
+.callout.red{border-left-color:var(--red);background:var(--red-bg)}
 .callout.red .cl{color:var(--red)}
-.callout.blue{background:var(--blue-lo);border-color:var(--blue)}
+.callout.blue{border-left-color:var(--blue);background:var(--blue-bg)}
 .callout.blue .cl{color:var(--blue)}
+.callout .doc-list{padding:4px 0 0}
 
-/* ─── CHECKLIST ─── */
-.checklist{list-style:none;display:flex;flex-direction:column;gap:3px}
+/* ─── CHECKLISTS ─── */
+.checklist{list-style:none}
 .checklist li{
-  display:flex;align-items:flex-start;gap:10px;
-  padding:10px 14px;
-  background:var(--bg2);
-  border:1px solid var(--border);
-  font-size:13.5px;color:var(--muted);
-  transition:border-color 0.1s,background 0.1s;
+  display:flex;gap:12px;align-items:flex-start;cursor:pointer;
+  border:1px solid var(--line);background:var(--panel);
+  padding:11px 14px;margin-bottom:8px;font-size:13.5px;color:var(--muted);
+  transition:background .12s;
 }
-.checklist li:hover{border-color:var(--border-md);background:var(--bg3)}
-.checklist li strong{color:var(--text-hi);font-weight:600}
+.checklist li:hover{background:#fff}
+.checklist li strong{color:var(--ink)}
 .chk{
-  width:14px;height:14px;flex-shrink:0;margin-top:3px;
-  border:1px solid var(--lime-dim);
-  display:flex;align-items:center;justify-content:center;
+  flex:none;width:16px;height:16px;border:1.5px solid var(--ink);margin-top:2px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;background:#fff;
 }
-.chk::after{content:'✓';font-size:8px;color:var(--lime);font-weight:700}
+.checklist li.checked{background:var(--lime-bg)}
+.checklist li.checked .chk{background:var(--lime);}
+.checklist li.checked .chk::after{content:'✕'}
+.check-progress{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--dim);margin-top:4px}
+.check-progress .done-msg{display:none;color:var(--lime-dark);font-weight:700}
+.check-progress.done .done-msg{display:inline}
+.check-progress.done .count-msg{display:none}
 
-/* ─── STEP TIMELINE ─── */
-.timeline{position:relative}
-.timeline::before{
-  content:'';position:absolute;
-  left:15px;top:20px;bottom:20px;
-  width:1px;background:var(--border);
+/* ─── TABLE ─── */
+.table-wrap{overflow-x:auto;margin-top:14px;border:1px solid var(--line)}
+table.fin{width:100%;border-collapse:collapse;font-size:13px;background:#fff}
+table.fin th{
+  font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);text-align:left;padding:9px 12px;font-weight:700;
 }
-.tl-step{display:flex;gap:1.125rem;margin-bottom:1.75rem;position:relative}
-.tl-num{
-  width:32px;height:32px;flex-shrink:0;
-  background:var(--bg3);border:1px solid var(--border-md);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Space Mono',monospace;
-  font-size:10px;font-weight:700;color:var(--lime);
-  position:relative;z-index:1;
+table.fin td{padding:9px 12px;border-top:1px solid var(--hair);color:var(--muted)}
+table.fin td:first-child{color:var(--ink);font-weight:600}
+table.fin td.hi{font-family:'Geist Mono',monospace;font-weight:700;color:var(--lime-dark)}
+
+/* ─── POST GRID ─── */
+.post-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+@media(min-width:640px){.post-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.post-grid{grid-template-columns:repeat(3,1fr)}}
+.post-card{border:1px solid var(--line);background:#fff;padding:14px}
+.pc-title{font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.01em}
+.pc-dead{
+  font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--amber);font-weight:700;margin:3px 0 7px;
 }
-.tl-body{flex:1;padding-top:5px}
-.tl-when{
-  font-family:'Space Mono',monospace;
-  font-size:9px;color:var(--amber);
-  letter-spacing:0.07em;text-transform:uppercase;margin-bottom:3px;
-}
-.tl-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1.1rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.025em;color:var(--white);margin-bottom:6px;
-}
-.tl-text{font-size:13.5px;color:var(--muted);line-height:1.68;margin-bottom:8px}
-.tl-text strong{color:var(--text-hi);font-weight:600}
-.tl-card{
-  background:var(--bg2);border:1px solid var(--border);
-  padding:12px 14px;margin-top:10px;
-}
-.tl-card-lbl{
-  font-family:'Space Mono',monospace;
-  font-size:9px;color:var(--dim);
-  letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;
-}
-.tl-card-lbl::before{content:'// '}
+.pc-dead::before{content:'// '}
+.post-card p{font-size:12.5px;color:var(--muted)}
+
 /* ─── SCREENSHOT TOGGLE ─── */
-.screenshot-toggle{
-  margin-top:14px;
-  border:1px solid var(--border);
-  background:var(--bg2);
-}
+.screenshot-toggle{border:1px solid var(--line);background:#fff;margin-top:12px}
 .screenshot-toggle summary{
-  font-family:'Space Mono',monospace;
-  font-size:9px;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--lime-dim);
-  padding:11px 14px;
-  cursor:pointer;
-  user-select:none;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:8px;
-  list-style:none;
-  transition:color 0.12s,background 0.12s;
+  font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--lime-dark);padding:10px 14px;cursor:pointer;user-select:none;font-weight:700;
+  display:flex;align-items:center;justify-content:space-between;list-style:none;
 }
 .screenshot-toggle summary::-webkit-details-marker{display:none}
 .screenshot-toggle summary::before{content:'// '}
-.screenshot-toggle summary::after{
-  content:'▾';
-  font-size:10px;color:var(--dim);
-  transition:transform 0.2s,color 0.12s;
+.screenshot-toggle summary::after{content:'▾';transition:transform .2s}
+.screenshot-toggle[open] summary{border-bottom:1px solid var(--hair)}
+.screenshot-toggle[open] summary::after{transform:rotate(180deg)}
+.screenshot-toggle img{display:block;width:100%;height:auto}
+
+/* ─── PANELS ─── */
+.eu-panel,.noneu-panel,.grad-panel{display:none}
+.eu-panel.active,.noneu-panel.active,.grad-panel.active{display:block}
+
+/* ─── NOTICE / GHOST / FOOTER ─── */
+.notice{border:1px solid var(--line);background:var(--ink);color:var(--paper);padding:18px 20px;margin-bottom:44px}
+.notice .notice-title{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:6px}
+.notice .notice-title::before{content:'// '}
+.notice p{font-size:13.5px;color:#c9c6bc}
+.notice p strong{color:var(--paper)}
+
+.ghost{
+  font-family:'Anton',sans-serif;text-transform:uppercase;text-align:center;
+  font-size:clamp(40px,10vw,110px);line-height:1;color:transparent;
+  -webkit-text-stroke:1px var(--hair);margin:40px 0 8px;user-select:none;
 }
-.screenshot-toggle summary:hover{color:var(--lime);background:var(--bg3)}
-.screenshot-toggle summary:hover::after{color:var(--lime)}
-.screenshot-toggle[open] summary{
-  color:var(--lime);
-  border-bottom:1px solid var(--border);
-}
-.screenshot-toggle[open] summary::after{
-  transform:rotate(180deg);color:var(--lime);
-}
-.screenshot-toggle img{
-  display:block;width:100%;height:auto;
+.ghost-sub{
+  text-align:center;font-family:'Geist Mono',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:40px;
 }
 
-.doc-list{list-style:none;display:flex;flex-direction:column;gap:5px}
-.doc-list li{
-  font-size:13px;color:var(--muted);
-  position:relative;padding-left:18px;
-  line-height:1.65;
-}
-.doc-list li::before{content:'→';color:var(--lime-dim);font-size:10px;position:absolute;left:0;top:6px}
-.doc-list li strong{color:var(--text-hi);font-weight:500}
-
-/* ─── FINANCIAL TABLE ─── */
-.table-wrap{
-  background:var(--bg2);border:1px solid var(--border);
-  overflow:hidden;margin-bottom:1rem;
-}
-table.fin{width:100%;border-collapse:collapse;font-size:13px}
-table.fin thead tr{border-bottom:1px solid var(--border-md)}
-table.fin th{
-  font-family:'Space Mono',monospace;font-size:9px;
-  letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--dim);padding:9px 14px;text-align:left;
-}
-table.fin td{
-  padding:11px 14px;
-  border-bottom:1px solid var(--border);
-  color:var(--muted);vertical-align:top;
-}
-table.fin td:first-child{font-weight:600;color:var(--text-hi)}
-table.fin tr:last-child td{border-bottom:none}
-table.fin .hi{
-  color:var(--lime);font-weight:700;
-  font-family:'Space Mono',monospace;font-size:11px;
-}
-
-/* ─── POST GRID ─── */
-.post-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
-  gap:6px;
-}
-.post-card{
-  background:var(--bg2);border:1px solid var(--border);
-  padding:1rem 1.125rem;
-  transition:border-color 0.12s,background 0.12s;
-  position:relative;
-}
-.post-card:hover{border-color:var(--border-md);background:var(--bg3)}
-/* corner accent top-right */
-.post-card::after{
-  content:'';position:absolute;top:0;right:0;
-  width:12px;height:12px;
-  border-top:1px solid var(--lime-dim);
-  border-right:1px solid var(--lime-dim);
-  opacity:0.4;
-}
-.pc-ico{font-size:15px;margin-bottom:8px;display:block;opacity:0.75}
-.pc-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:0.95rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.03em;color:var(--white);margin-bottom:2px;
-}
-.pc-dead{
-  font-family:'Space Mono',monospace;font-size:9px;
-  color:var(--amber);letter-spacing:0.05em;margin-bottom:7px;
-}
-.pc-dead::before{content:'// '}
-.post-card p{font-size:12px;color:var(--muted);line-height:1.55}
-
-/* ─── NOTICE ─── */
-.notice{
-  background:var(--red-lo);
-  border:1px solid var(--red-brd);
-  padding:1.5rem;position:relative;overflow:hidden;
-}
-.notice::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--red),transparent);
-  opacity:0.5;
-}
-.notice-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1.05rem;font-weight:800;text-transform:uppercase;
-  letter-spacing:0.04em;color:var(--red);margin-bottom:0.75rem;
-}
-.notice-title::before{content:'[ '}
-.notice-title::after{content:' ]'}
-.notice p{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:0.5rem}
-.notice p:last-child{margin:0}
-.notice p strong{color:var(--text-hi);font-weight:600}
-
-/* ─── DIVIDER ─── */
-hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
-
-/* ─── FOOTER ─── */
 .site-footer{
-  border-top:1px solid var(--border);
-  padding:2rem 2.5rem;
-  max-width:980px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:1rem;
-  position:relative;z-index:1;
+  background:var(--ink);color:#b7b4aa;padding:26px 24px;
+  font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;
 }
-.footer-logo{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:800;font-size:15px;
-  letter-spacing:0.12em;text-transform:uppercase;color:var(--white);
-}
+.footer-logo{font-weight:700;color:var(--paper);font-size:13px}
 .footer-logo span{color:var(--lime)}
-.footer-info{
-  font-family:'Space Mono',monospace;font-size:9px;
-  color:var(--dim);letter-spacing:0.05em;text-align:right;line-height:1.8;
-}
-.footer-info a{color:var(--lime-dim);text-decoration:none}
-.footer-info a:hover{color:var(--lime)}
-
-/* ─── RESP ─── */
-@media(max-width:640px){
-  .site-header,.hero,.main{padding-left:1.25rem;padding-right:1.25rem}
-  .hero{padding-top:3rem}
-  .aud-sw{max-width:100%}
-  .timeline::before{left:13px}
-  .tl-num{width:28px;height:28px;font-size:9px}
-  .post-grid{grid-template-columns:1fr 1fr}
-  .footer-info{text-align:left}
-  .hero::before,.hero::after{display:none}
-}
+.footer-info{line-height:2;text-align:right}
+.footer-info a{color:var(--lime);text-decoration:none}
+@media(max-width:640px){.footer-info{text-align:left}}
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="logo">CONCEPT<span>CORE</span></div>
-  <div class="header-right">
-    <div class="header-tag">// INTL. STUDENT GUIDE 2025–26</div>
-    <div class="live-dot"></div>
-  </div>
+<header class="topbar">
+  <div class="tb-brand">CONCEPTCORE<span> ACADEMY</span></div>
+  <div class="tb-mid">// INTL. STUDENT GUIDE · 2026-27</div>
+  <div class="tb-chip">UAI 0942671T</div>
 </header>
 
 <section class="hero">
-  <div class="hero-layout">
-    <div class="eyebrow">INTERNATIONAL STUDENTS</div>
-    <h1>COMING TO PARIS.<br><span class="g">READ THIS FIRST.</span></h1>
-    <p class="hero-sub">Your complete administrative roadmap from enrollment to your first day at the Arcueil campus. Select your situation below.</p>
-    <p class="sw-label">SELECT YOUR SITUATION</p>
-    <div class="aud-sw">
-      <button class="sw-btn active" onclick="sw('eu')">
-        <span class="btn-inner">EU / EEA / Swiss<span class="btn-sub">No visa required</span></span>
-      </button>
-      <button class="sw-btn" onclick="sw('noneu')">
-        <span class="btn-inner">Non-EU Students<span class="btn-sub">Visa required</span></span>
-      </button>
-      <button class="sw-btn" onclick="sw('grad')">
-        <span class="btn-inner">After Graduation<span class="btn-sub">Stay in France</span></span>
-      </button>
-    </div>
+  <div class="eyebrow">International Students · Paris · Arcueil</div>
+  <h1>COMING TO PARIS.<br>READ THIS FIRST<span class="slash">/</span></h1>
+  <p class="hero-sub">Your administrative roadmap from enrollment to your first day at the Arcueil campus — and beyond. Pick your situation.</p>
+  <p class="sw-label">Select your situation</p>
+  <div class="aud-sw">
+    <button class="sw-btn active" onclick="sw('eu',true)">
+      <span class="bt-tag">Track A</span>
+      <span class="bt-name">EU / EEA / Swiss</span>
+      <span class="bt-sub">No visa required</span>
+    </button>
+    <button class="sw-btn" onclick="sw('noneu',true)">
+      <span class="bt-tag">Track B</span>
+      <span class="bt-name">Non-EU Students</span>
+      <span class="bt-sub">Visa required</span>
+    </button>
+    <button class="sw-btn" onclick="sw('grad',true)">
+      <span class="bt-tag">Track C</span>
+      <span class="bt-name">After Graduation</span>
+      <span class="bt-sub">Stay in France</span>
+    </button>
   </div>
 </section>
 
 <div class="main">
 
-<!-- ══════════════════ UAI BANNER ══════════════════ -->
-<div class="uai-banner" id="uai-banner">
-  <div class="uai-top" onclick="toggleUAI()">
-    <div class="uai-pulse"></div>
+<!-- ═══ UAI STRIP ═══ -->
+<div class="uai-strip" id="uai-banner">
+  <div class="uai-head">
+    <div class="uai-sq"></div>
     <div class="uai-lbl">UAI Code Status</div>
-    <div class="uai-badge">RECEIVED · 0942671T</div>
-    <div class="uai-hint">
-      <span class="count-expand">EXPAND</span>
-      <span class="uai-arrow">▾</span>
-    </div>
+    <div class="uai-chip">RECEIVED · 0942671T</div>
   </div>
-  <div class="uai-body" id="uai-body">
-    <p class="uai-intro">
-      <strong>ConceptCore holds its Code UAI: 0942671T.</strong> Our establishment was officially declared open as a private higher-education institution by the Rectorat (attestation of 3 July 2026), and our UAI — the French Ministry of Education's official establishment identifier — was issued on 13 July 2026. All Certificates of Enrollment have been reissued to include it: download the updated version from your certificate link. Non-EU visa procedures are fully open.
-    </p>
-    <div class="uai-tl">
-
-      <div class="uai-row">
-        <div class="uai-l">
-          <div class="uai-dot done"></div>
-          <div class="uai-line"></div>
-        </div>
-        <div class="uai-c">
-          <div class="uai-tag">Done · 11 June 2026</div>
-          <div class="uai-ttl">Declaration Filed with the Rectorat</div>
-          <div class="uai-txt">Full declaration of opening filed with the Académie de Créteil (the Rectorat covering the Arcueil campus): administrators, full teaching team, pedagogical program, premises and safety documentation.</div>
-        </div>
-      </div>
-
-      <div class="uai-row">
-        <div class="uai-l">
-          <div class="uai-dot done"></div>
-          <div class="uai-line"></div>
-        </div>
-        <div class="uai-c">
-          <div class="uai-tag">Done · 3 July 2026</div>
-          <div class="uai-ttl">Establishment Declared Open</div>
-          <div class="uai-date">Attestation signed by the rectrice of the Île-de-France academic region</div>
-          <div class="uai-txt">ConceptCore Academy is officially declared open as a private higher-education establishment, with the full teaching team validated.</div>
-        </div>
-      </div>
-
-      <div class="uai-row">
-        <div class="uai-l">
-          <div class="uai-dot done"></div>
-          <div class="uai-line"></div>
-        </div>
-        <div class="uai-c">
-          <div class="uai-tag">Done · 13 July 2026</div>
-          <div class="uai-ttl">Code UAI Received · Certificates Reissued</div>
-          <div class="uai-date">Code UAI 0942671T</div>
-          <div class="uai-txt">Our UAI is active and all Certificates of Enrollment have been reissued to include it — download the updated version from your certificate link. If your dossier is already under review somewhere, you don't need to resubmit anything; provide the updated certificate only if asked. Next step on our side: joining the Études en France connected catalogue, planned for the 2027 intake.</div>
-        </div>
-      </div>
-
-    </div>
+  <p class="uai-note">ConceptCore is a declared private higher-education establishment with its own Ministry of Education identifier. All Certificates of Enrollment now carry the UAI — if yours predates mid-July 2026, <strong>download the updated version from your certificate link</strong>.</p>
+  <div class="uai-miles">
+    <div class="uai-mile"><b>11 JUN 2026</b>Declaration filed with the Rectorat de Créteil</div>
+    <div class="uai-mile"><b>3 JUL 2026</b>Establishment declared open · attestation of the rectrice</div>
+    <div class="uai-mile"><b>13 JUL 2026</b>Code UAI issued · certificates reissued</div>
   </div>
 </div>
 
 <div class="panel-wrap">
-<!-- ══════════════════ EU PANEL ══════════════════ -->
+
+<!-- ═══ EU PANEL ═══ -->
 <div class="eu-panel active" id="eu-panel">
 
   <div class="section">
-    <div class="sec-lbl">EU · EEA · Switzerland</div>
-    <div class="sec-title">No visa required.</div>
+    <div class="sec-head">
+      <div class="sec-lbl">Track A · EU · EEA · Switzerland</div>
+      <div class="sec-title">No visa required.</div>
+    </div>
     <div class="callout lime">
       <div class="cl">You're free to come</div>
-      <p>As an EU/EEA/Swiss citizen you have the right to live and study in France with no visa, no residence permit, and no administrative procedure. The UAI timeline above does not affect your enrollment.</p>
-    </div>
-    <div class="callout blue">
-      <div class="cl">Work rights</div>
-      <p>You may work <strong>up to 964 hours/year (~20h/week)</strong> in France with no additional permit. Valid national ID or passport is all you need.</p>
+      <p>You have the right to live and study in France with no visa, no residence permit, no procedure. You may also work <strong>up to 964 hours/year (~20h/week)</strong> with no additional permit. A valid national ID or passport is all you need.</p>
     </div>
   </div>
 
   <div class="section">
-    <div class="sec-lbl">Before Day One</div>
-    <div class="sec-title">Enrollment checklist</div>
-    <ul class="checklist" data-group="eu-enroll" id="cl-eu-enroll">
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Valid passport or national ID</strong>. Must cover your full enrollment period</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>20% deposit paid</strong>. Secures your seat and triggers your Yousign contract</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Proof of address (guarantor)</strong>. Required for the enrollment contract</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Civil liability insurance</strong>. Mandatory before Day 1, ~€30–60/year</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Student photo</strong>. For your student card</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Accommodation in Paris arranged</strong>. Hybrid students: prioritize masterclass and mentor visit weeks for on-site attendance</div></li>
+    <div class="sec-head">
+      <div class="sec-lbl">Before Day One</div>
+      <div class="sec-title">Enrollment checklist</div>
+    </div>
+    <ul class="checklist" id="cl-eu-enroll">
+      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Valid passport or national ID</strong> covering your full enrollment period</div></li>
+      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>20% deposit paid</strong> — secures your seat, triggers your Yousign contract</div></li>
+      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Proof of address (guarantor)</strong> for the enrollment contract</div></li>
+      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Civil liability insurance</strong> — mandatory before Day 1, ~€30–60/year</div></li>
+      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Student photo</strong> for your student card</div></li>
+      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Accommodation arranged</strong> in the Paris area</div></li>
     </ul>
     <div class="check-progress" id="prog-eu-enroll"><span class="count-msg">// <span class="count">0</span> / 6 COMPLETED</span><span class="done-msg">// ALL DONE ✓</span></div>
   </div>
 
   <div class="section">
-    <div class="sec-lbl">After Arriving</div>
-    <div class="sec-title">Post-arrival checklist</div>
+    <div class="sec-head">
+      <div class="sec-lbl">After Arriving</div>
+      <div class="sec-title">Post-arrival checklist</div>
+    </div>
     <div class="post-grid">
       <div class="post-card">
-        <span class="pc-ico">🏥</span>
         <div class="pc-title">Sécurité Sociale</div>
         <div class="pc-dead">Register ASAP</div>
-        <p>Register on ameli.fr. Covers ~70% of medical costs. Free. Assign a médecin traitant afterward.</p>
+        <p>ameli.fr — covers ~70% of medical costs, free. Assign a médecin traitant afterward.</p>
       </div>
       <div class="post-card">
-        <span class="pc-ico">🏠</span>
         <div class="pc-title">CAF / APL</div>
         <div class="pc-dead">Once lease is signed</div>
-        <p>Monthly housing aid. Apply on caf.fr once you have a permanent French lease in your name and a French bank account.</p>
+        <p>Monthly housing aid. Apply on caf.fr once you have a French lease in your name + a French bank account.</p>
       </div>
       <div class="post-card">
-        <span class="pc-ico">🏦</span>
         <div class="pc-title">Bank Account</div>
         <div class="pc-dead">First week</div>
-        <p>N26 or Revolut open instantly. La Banque Postale for students needing physical banking with no French credit history.</p>
+        <p>N26 / Revolut open instantly. La Banque Postale if you need physical banking with no French credit history.</p>
       </div>
       <div class="post-card">
-        <span class="pc-ico">📋</span>
-        <div class="pc-title">CVEC Tax</div>
+        <div class="pc-title">CVEC</div>
         <div class="pc-dead">~€105 before Day 1</div>
-        <p>Annual campus contribution. We are confirming whether it applies to our establishment following our declaration with the Rectorat (July 2026) — we'll notify all students before Day 1.</p>
+        <p>Annual campus contribution. We're confirming whether it applies to us after our July 2026 declaration — we'll notify everyone before Day 1.</p>
       </div>
     </div>
   </div>
 
   <div class="notice">
-    <div class="notice-title">Post-graduation: staying in France</div>
-    <p>As an EU/EEA/Swiss citizen you can <strong>stay and work freely in France after graduation</strong> — same rights as French nationals, no employer sponsorship needed. One of the strongest advantages of being a European student in Paris.</p>
+    <div class="notice-title">After graduation</div>
+    <p>As an EU/EEA/Swiss citizen you can <strong>stay and work freely in France after graduating</strong> — same rights as French nationals, no sponsorship needed.</p>
   </div>
 
 </div>
 
-<!-- ══════════════════ NON-EU PANEL ══════════════════ -->
+<!-- ═══ NON-EU PANEL ═══ -->
 <div class="noneu-panel" id="noneu-panel">
 
   <div class="section">
-    <div class="callout amber">
-      <div class="cl">Before you start</div>
-      <p>Everything you need to start is ready: <strong>Certificates of Enrollment are issued and carry our Code UAI 0942671T</strong>, and our establishment is officially declared with the Rectorat (3 July 2026). If you received your certificate before mid-July 2026, <strong>download the updated version from your certificate link</strong> — it now includes the UAI. Then follow the steps below in order.</p>
+    <div class="callout lime">
+      <div class="cl">Everything is ready</div>
+      <p>Certificates of Enrollment are issued and carry our <strong>Code UAI 0942671T</strong>; the establishment is officially declared (3 July 2026). If your certificate predates mid-July 2026, <strong>download the updated version from your certificate link</strong>, then follow the steps in order.</p>
     </div>
   </div>
 
   <div class="section">
-    <div class="sec-lbl">Your Visa Roadmap</div>
-    <div class="sec-title">Step by step.</div>
+    <div class="sec-head">
+      <div class="sec-lbl">Act 01 · Your Visa Roadmap</div>
+      <div class="sec-title">Step by step.</div>
+    </div>
     <div class="timeline">
 
       <div class="tl-step">
         <div class="tl-num">01</div>
         <div class="tl-body">
           <div class="tl-when">Available now · Start here</div>
-          <div class="tl-title">Receive your Certificate of Enrollment</div>
-          <p class="tl-text">Your <strong>Certificate of Enrollment</strong> (Attestation d'admission) is issued as soon as your enrollment is confirmed. It is dated and signed, carries our <strong>Code UAI 0942671T</strong>, and is the document Campus France requires you to attach inside Études en France. If you received yours before mid-July 2026, download the updated version from your certificate link — it now includes the UAI.</p>
+          <div class="tl-title">Your Certificate of Enrollment</div>
+          <p class="tl-text">Issued as soon as your enrollment is confirmed: dated, signed, and carrying our <strong>Code UAI 0942671T</strong>. It's the document Campus France asks you to attach inside Études en France.</p>
           <div class="tl-card">
-            <div class="tl-card-lbl">What's on the document</div>
+            <div class="tl-card-lbl">What's on it</div>
             <ul class="doc-list">
-              <li>Our <strong>Code UAI 0942671T</strong> (Ministry of Education establishment identifier)</li>
-              <li>Exact title of the program and the diploma prepared</li>
-              <li>Type and year of entry</li>
-              <li>Course start date</li>
-              <li>Latest authorized arrival date (for late arrivals)</li>
-              <li>Explicit statement that the program is <strong>full-time (&gt;20 hours/week)</strong>, as required by law</li>
+              <li><strong>Code UAI 0942671T</strong> (Ministry of Education establishment identifier)</li>
+              <li>Program title, diploma prepared, type and year of entry</li>
+              <li>Course start date + latest authorized late arrival</li>
+              <li><strong>Full-time statement (&gt;20 hours/week)</strong>, as required by law</li>
             </ul>
           </div>
         </div>
@@ -827,126 +444,100 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
       <div class="tl-step">
         <div class="tl-num">02</div>
         <div class="tl-body">
-          <div class="tl-when">73 countries · USA, UK, India, Brazil, Japan, Morocco, Senegal and more</div>
-          <div class="tl-title">Études en France / Campus France Procedure</div>
-          <p class="tl-text">Required pre-consular step if you reside in one of the <strong>73 EEF-listed countries</strong>. Confirm whether EEF applies to you using the <strong>"Dois-je candidater par Études en France?"</strong> selector on the homepage of <strong>pastel.diplomatie.gouv.fr/etudesenfrance</strong>. <strong>If your country is not on the EEF list, skip directly to Step 03.</strong></p>
-          <p class="tl-text" style="margin-top:8px">ConceptCore is a <strong>non-connected establishment</strong> in EEF for this intake — we keep one single, consistent procedure for everyone this year, and plan to join the connected catalogue for the 2027 intake. The EEF platform fully supports this case — the actions live <strong>inside your candidate dashboard, not on the public landing page</strong>.</p>
+          <div class="tl-when">73 countries · USA, UK, India, Brazil, Japan, Morocco &amp; more</div>
+          <div class="tl-title">Études en France / Campus France</div>
+          <p class="tl-text">Required pre-consular step if you live in one of the <strong>73 EEF countries</strong> — check with the <strong>"Dois-je candidater par Études en France?"</strong> selector on pastel.diplomatie.gouv.fr/etudesenfrance. <strong>Not on the list? Skip to Step 03.</strong></p>
+          <p class="tl-text">ConceptCore is a <strong>non-connected establishment</strong> this intake (one consistent procedure for everyone; we plan to join the connected catalogue for 2027). Everything below happens <strong>inside your candidate dashboard</strong>, not on the public landing page.</p>
 
           <details class="screenshot-toggle">
-            <summary>Visual reference · expand to see the full Step 02 flow</summary>
-            <img src="screenshots/step-02-reference.png" alt="Step 02 EEF procedure visual reference showing all cards from Create candidate account through After submission" loading="lazy">
+            <summary>Visual reference · the full Step 02 flow</summary>
+            <img src="screenshots/step-02-reference.png" alt="Step 02 EEF procedure visual reference" loading="lazy">
           </details>
 
           <div class="tl-card">
-            <div class="tl-card-lbl">1 · Create your candidate account</div>
+            <div class="tl-card-lbl">1 · Create your account</div>
             <ul class="doc-list">
-              <li>Go to <strong>pastel.diplomatie.gouv.fr/etudesenfrance</strong> and click <strong>"Je m'inscris"</strong> (top right). Or start from your country's Campus France site (e.g. usa.campusfrance.org, inde.campusfrance.org, maroc.campusfrance.org) — it walks you through the same registration.</li>
-              <li>Once registered, sign in via <strong>"Je me connecte"</strong>. Everything below happens inside your dashboard.</li>
+              <li><strong>pastel.diplomatie.gouv.fr/etudesenfrance</strong> → <strong>"Je m'inscris"</strong> (top right), or start from your country's Campus France site (usa.campusfrance.org, inde.campusfrance.org…)</li>
+              <li>Sign in via <strong>"Je me connecte"</strong> — the rest lives in your dashboard</li>
             </ul>
           </div>
 
-          <div class="tl-card" style="margin-top:8px">
+          <div class="tl-card">
             <div class="tl-card-lbl">2 · Open the paper-acceptance form</div>
             <ul class="doc-list">
-              <li>Navigate to <strong>"Mon projet d'études"</strong> → <strong>"Je suis accepté"</strong> → <strong>"Acceptation papier reçue en dehors de l'application études en France"</strong>.</li>
-              <li>The page is a single form with three numbered sections plus a motivations field. Fill them as follows.</li>
+              <li><strong>"Mon projet d'études" → "Je suis accepté" → "Acceptation papier reçue en dehors de l'application études en France"</strong></li>
+              <li>One form, three numbered sections + a motivations field</li>
             </ul>
           </div>
 
-          <div class="tl-card" style="margin-top:8px">
-            <div class="tl-card-lbl">Section 1 · Je sélectionne le cas qui me concerne</div>
+          <div class="tl-card">
+            <div class="tl-card-lbl">3 · Fill the three sections</div>
             <ul class="doc-list">
-              <li>Tick <strong>"Je suis dans un autre cas"</strong> and pick the matching dropdown option (paper acceptance from an establishment outside the EEF catalogue).</li>
-            </ul>
-          </div>
-
-          <div class="tl-card" style="margin-top:8px">
-            <div class="tl-card-lbl">Section 2 · Je recherche ma formation</div>
-            <ul class="doc-list">
-              <li>Click <strong>"Rechercher une formation dans le catalogue"</strong> and search ConceptCore. You won't find it while we are a non-connected establishment.</li>
-              <li>Tick <strong>"Je n'ai pas trouvé ma formation dans le catalogue"</strong> and fill the manual fields as follows:</li>
+              <li><strong>Section 1 · My case</strong> — tick <strong>"Je suis dans un autre cas"</strong> and pick the paper-acceptance / outside-catalogue option</li>
+              <li><strong>Section 2 · My program</strong> — search the catalogue first (we won't appear), then tick <strong>"Je n'ai pas trouvé ma formation dans le catalogue"</strong> and fill manually:</li>
               <li><strong>Description</strong> · <em>"Concept Art Program at ConceptCore Academy. Full-time 3-year program in concept design for video games, film, and animation. Year 1."</em></li>
-              <li><strong>Year of entry</strong> · <em>Year 1</em> (or whichever year matches your acceptance letter)</li>
-              <li><strong>Level</strong> · the dropdown uses Bac+N notation. Pick <em>Bac +1</em> for Year 1, <em>Bac +2</em> for Year 2, <em>Bachelor's degree +3</em> for Year 3.</li>
-              <li><strong>Field of study</strong> · <em>Arts - Culture - Design - Fashion</em></li>
-              <li><strong>Type of diploma</strong> · <em>Formation d'école spécialisée</em>. The dropdown is alphabetical, scroll past all the "D" options into the "F" section. It sits between <em>Formation complémentaire d'initiative locale</em> and <em>Formation de fonctionnaires</em>.</li>
+              <li><strong>Year of entry</strong> · your year · <strong>Level</strong> · Bac+N notation: <em>Bac +1</em> for Year 1, <em>Bac +2</em> for Year 2, <em>Bachelor's degree +3</em> for Year 3</li>
+              <li><strong>Field of study</strong> · <em>Arts - Culture - Design - Fashion</em> · <strong>Type of diploma</strong> · <em>Formation d'école spécialisée</em> (alphabetical list — scroll past the "D" block into "F")</li>
+              <li><strong>Section 3 · My establishment</strong> — <strong>ConceptCore Academy</strong>, 23–25 Ave. Jeanne d'Arc, 94110 Arcueil</li>
             </ul>
           </div>
 
-          <div class="tl-card" style="margin-top:8px">
-            <div class="tl-card-lbl">Section 3 · Je sélectionne l'établissement qui m'accueille</div>
+          <div class="tl-card">
+            <div class="tl-card-lbl">4 · Motivations · Save · Finalize</div>
             <ul class="doc-list">
-              <li>Fill <strong>ConceptCore Academy</strong> manually. Address: 23–25 Ave. Jeanne d'Arc, 94110 Arcueil.</li>
+              <li>Write your <strong>motivations</strong> (background, why concept art, why ConceptCore, career plan), click <strong>"Enregistrer"</strong> and <strong>attach your Certificate of Enrollment</strong></li>
+              <li>You land on <strong>"I am finalizing my procedure"</strong> — verify your <em>main study project</em> matches your certificate exactly (dates, full-time, address). Fix with <strong>"To modify"</strong>; never DELETE</li>
+              <li><strong>Skip the "Add" section</strong> — it's only for a supplementary program (e.g. French course) taken <em>before</em> ours. If you truly have one, use the second radio button; <strong>never "exchange program"</strong></li>
+              <li>Open <strong>"Supporting documents"</strong> and confirm every file renders (see the red box below if it errors)</li>
             </ul>
           </div>
 
-          <div class="tl-card" style="margin-top:8px">
-            <div class="tl-card-lbl">3 · Motivations + Save</div>
+          <div class="tl-card">
+            <div class="tl-card-lbl">5 · Submit — the step students miss most</div>
             <ul class="doc-list">
-              <li>Write your <strong>motivations</strong>: background, why concept art, why ConceptCore, career plan.</li>
-              <li>Click <strong>"Enregistrer"</strong> and <strong>attach your Certificate of Enrollment</strong> as the required acceptance document.</li>
+              <li>Saving is <strong>not</strong> submitting: your dossier stays in draft until you click <strong>"Soumettre mon dossier" / "Submit my dossier"</strong> at the end of the finalization</li>
+              <li>Pay the <strong>Campus France fee</strong> — <strong>$460 in the USA</strong>, ~€80–130 in most countries; many offices won't review until it's paid</li>
+              <li>Pick the <strong>"Independent" / non-degree-granting category</strong> — never Study abroad, DAP/HDAP or Doctoral. US form: no apostrophes in names (O'Malley → OMalley)</li>
+              <li>Your status should flip from <em>Brouillon</em> to <em>Soumis</em>. Still draft after a few minutes? You missed the button</li>
             </ul>
           </div>
 
-          <div class="tl-card" style="margin-top:8px">
-            <div class="tl-card-lbl">4 · Finalize your procedure</div>
+          <div class="tl-card">
+            <div class="tl-card-lbl">6 · Track your dossier</div>
             <ul class="doc-list">
-              <li>After saving the paper-acceptance form, you land on the <strong>"I am finalizing my procedure"</strong> page. Your project now shows as <em>"My main study project"</em> with the program title, dates, address, and supporting documents.</li>
-              <li>Read the section labeled <strong>"1.1 — I declare my final study project"</strong>. Verify the entry matches your acceptance letter exactly (dates, full-time status, address). If something is wrong, use the <strong>"To modify"</strong> (pencil) button to fix it. Do <strong>not</strong> click DELETE unless you want to start over.</li>
-              <li>The <strong>"Add"</strong> section asks if you want to declare a <strong>supplementary project</strong>. This is for students enrolling in a French language program (or similar) <em>before</em> their main program. <strong>If you're only attending ConceptCore, skip the Add section.</strong> Do not click Add.</li>
-              <li>If you genuinely have a supplementary program, pick the <strong>second radio button</strong> ("Acceptance received to pursue a course of study in France (excluding exchange programs)") and click Add. <strong>Do NOT pick "exchange program"</strong> — ConceptCore is not an exchange program.</li>
-              <li>Click <strong>"Supporting documents (3)"</strong> and confirm all your files are uploaded and renderable (use the troubleshooting callout below if "To consult" errors).</li>
-              <li>Move to the next sub-step of the finalization (typically your address in France).</li>
+              <li>Seeing <strong>"already submitted"</strong> when re-editing = your dossier went through. That's the lock, not a bug</li>
+              <li>Track in <strong>"Students already accepted"</strong>; read messages in <strong>"Messagerie"</strong> (an <em>"À consulter"</em> badge = unread)</li>
+              <li>Sequence: <em>Soumis → En cours d'examen → Convocation à l'entretien → Avis pédagogique favorable</em></li>
+              <li><strong>Wait for the convocation</strong> — Campus France schedules the interview at their office. <strong>Don't contact the consulate</strong>; that's the visa stage, only after the favorable Avis</li>
+              <li>Tell us which Campus France office has your file — we confirm your admission to them directly (required for non-connected establishments)</li>
+              <li>No movement for 2–3 weeks? Message your local Campus France office — faster than the platform</li>
             </ul>
           </div>
 
-          <div class="tl-card" style="margin-top:8px">
-            <div class="tl-card-lbl">5 · Submit your dossier to Campus France · don't skip this</div>
+          <div class="callout amber">
+            <div class="cl">Interview prep · ~20 min, conversational</div>
             <ul class="doc-list">
-              <li><strong>This is the step students miss most often.</strong> Filling and saving the paper-acceptance form is NOT the same as submitting your dossier. The form + Finalize page just declare your project; your dossier stays in draft on your account until you explicitly send it.</li>
-              <li>Once all Finalization sub-steps are green (study project, contact info, any required acknowledgements), look for the final button labeled <strong>"Soumettre mon dossier"</strong> / <strong>"Envoyer à Campus France"</strong> / <strong>"Submit my dossier"</strong> (wording varies by EEF version). Click it. This is what actually transmits your dossier to Campus France for review.</li>
-              <li>Pay the <strong>Campus France fee</strong>. Amount varies significantly by country (<strong>$460 in the USA</strong>, ~€80–€130 in most other countries). In many countries, your dossier won't be reviewed until the fee is paid. <strong>ConceptCore students should pick the "Independent" / "non-degree-granting program" category</strong>, never "Study abroad", "DAP/HDAP", "Doctoral", or any university-degree category. We issue a school diploma (Diplôme de Concept Artist), not a state-recognized Licence/Master/Doctorate. Check your country's Campus France page for the exact amount, the right category label, and payment instructions. Heads-up on US form: no apostrophes in your name (O'Malley → OMalley, the payment system breaks on them).</li>
-              <li>After submission, your dashboard status should move from <em>Brouillon / À compléter</em> to <em>Soumis</em>. If it still shows draft after a few minutes, you missed the submit button.</li>
+              <li>They check one thing: your project is real. Prepare a <strong>4-beat story</strong>: background → why concept art → why ConceptCore (full-time 3-year, 35h/week, industry mentors) → career plan with 2–3 named studios</li>
+              <li><strong>Know your file cold</strong>: program dates, tuition (€11,500 Y1), who pays, your €615/month + tuition-plan numbers</li>
+              <li><strong>If recognition comes up</strong>: the diploma is school-issued; studios hire on portfolio — that's why you chose an intensive program. If a visitor visa is suggested: full-time, 35h/week, 3 years = student visa is the right category</li>
+              <li><strong>Bring</strong>: convocation, passport, certificate, payment receipt, financial proof, portfolio (tablet or prints). 15 min early. FR or EN. Never invent — their notes go to the consulate</li>
+              <li>Afterwards, <strong>send us the questions you were asked</strong> (academy@conceptcore.co) — it helps the next students</li>
             </ul>
           </div>
 
-          <div class="tl-card" style="margin-top:8px">
-            <div class="tl-card-lbl">6 · After submission · tracking your dossier</div>
+          <div class="callout red">
+            <div class="cl">"Erreur technique" on upload or "To consult"</div>
             <ul class="doc-list">
-              <li><strong>Confirm your submission</strong>: once sent, EEF locks the dossier from edits. If you try to edit or resubmit and see "already submitted", that's the platform behaving correctly. Your dossier IS through.</li>
-              <li><strong>Track status</strong> in the top tab <em>"Étudiants déjà acceptés / Students already accepted"</em>. Your dossier appears with its current status.</li>
-              <li><strong>Check messages</strong> in the top tab <em>"Messagerie / Mailbox"</em>. Campus France sends notifications here. An <strong>"À consulter"</strong> badge means an unread message — click in and read it.</li>
-              <li><strong>Status sequence</strong> to expect: <em>Soumis</em> → <em>En cours d'examen</em> → <em>Convocation à l'entretien</em> → <em>Avis pédagogique favorable</em>.</li>
-              <li>Pay the <strong>Campus France fee</strong> (~€50–100 depending on country).</li>
-              <li><strong>Wait for the convocation.</strong> Campus France schedules the interview, you don't book it. The convocation arrives in your EEF Messagerie and by email. <strong>Do not contact the French consulate at this stage</strong> — the interview happens at your local <strong>Campus France office</strong>, which is a different place from the consulate.</li>
-              <li>Attend your <strong>~20-min academic interview</strong> on the date they give you. Conversational, the advisor assesses your project.</li>
-              <li>Tell us which Campus France office handles your file. We confirm your admission directly to them — required by Campus France for non-connected establishments.</li>
-              <li>Receive your <strong>EEF Agreement</strong> (Avis pédagogique favorable). Required for Step 03.</li>
-              <li>If 2–3 weeks pass with no movement, message your local Campus France office directly. They're faster than the platform.</li>
-              <li><strong>Only AFTER the favorable Avis</strong> do you apply for the visa (Step 03). The consulate / VFS Global appointment is part of the visa application, not the Campus France process.</li>
+              <li><strong>Several files fail</strong> → the <strong>500 KB per-file limit</strong>. Compress (ilovepdf.com), delete the oversize upload, re-upload under 500 KB</li>
+              <li><strong>Only one file fails</strong> (often the certificate) → delete the entry, re-download a fresh copy, rename it <em>certificate.pdf</em>, re-upload. Still failing? Screenshot the document and upload as PNG</li>
+              <li><strong>Consult still broken? Submit anyway</strong> — it's only your preview; if the file is listed, it's in your dossier</li>
+              <li>Last resort: clear cookies, try another browser, or email the error reference to academy@conceptcore.co</li>
             </ul>
           </div>
 
-          <div class="callout amber" style="margin-top:12px">
-            <div class="cl">Interview prep · ~20 minutes, conversational</div>
-            <p>The advisor checks one thing: that your study project is real and coherent. Prepare a <strong>4-beat narrative</strong>, 30–60 seconds each: (1) your background, (2) why concept art as a career, (3) why ConceptCore — full-time 3-year program, 35h/week on campus, industry mentors, English-taught, (4) your career plan, with 2–3 named studios.</p>
-            <p style="margin-top:8px"><strong>Know your file cold.</strong> The advisor has your dossier open and checks consistency: program dates and hours, tuition (€11,500/year) and who pays it, your financial-proof numbers (€615/month minimum + your tuition plan).</p>
-            <p style="margin-top:8px"><strong>If asked about the school's recognition</strong>: answer honestly and calmly. The diploma is a school-issued diploma; concept art studios hire on portfolio, and you chose an intensive full-time program with industry mentors to build it. Don't raise the topic yourself. If a shorter stay or a visitor visa is suggested, point out the program is full-time, 35 hours/week, 3 years — the student visa is the correct category.</p>
-            <p style="margin-top:8px"><strong>Bring</strong>: convocation, passport, acceptance letter, payment receipt, financial-proof documents, and your portfolio (tablet or prints — rarely requested, but for an art school it's the strongest proof your project is real). Arrive 15 minutes early. French or English both fine. Short, concrete answers. Never invent — the advisor's notes go to the consulate with your dossier.</p>
-            <p style="margin-top:8px">Students from high-scrutiny countries (India, Morocco, Senegal, Vietnam) should be especially thorough. <strong>After your interview, send us the questions you were asked</strong> (<a href="mailto:academy@conceptcore.co">academy@conceptcore.co</a>) — it helps us prep the next students.</p>
-          </div>
-
-          <div class="callout blue" style="margin-top:12px">
+          <div class="callout blue">
             <div class="cl">Heads-up · UI wording changes</div>
-            <p>The EEF interface is updated periodically. The buttons and section labels on the form (sections 1/2/3 above) are what we see today. The stable navigation path is <strong>Mon projet d'études → Je suis accepté → Acceptation papier reçue en dehors de l'application études en France</strong>. If you get lost, screenshot the page and email us at <strong><a href="mailto:academy@conceptcore.co">academy@conceptcore.co</a></strong>.</p>
-          </div>
-
-          <div class="callout red" style="margin-top:12px">
-            <div class="cl">If you hit "Erreur technique" on upload or "To consult"</div>
-            <p><strong>If multiple files trigger the error</strong>, the cause is almost always the <strong>500 KB per file size limit</strong> (kilobytes, not megabytes). PDFs from typical sources are 1–3 MB and silently break the viewer. Compress each one (ilovepdf.com → "Compress PDF" → strong compression) until it is under 500 KB, delete the oversize version from "My supporting documents", re-upload the compressed one, click "To consult" again.</p>
-            <p style="margin-top:8px"><strong>If only one specific file (often the Certificate of Enrollment) triggers the error</strong>, size is fine but EEF's viewer is rejecting that particular file. Try: (1) delete the broken entry, (2) redownload a fresh copy of the file from your email, (3) rename it to something simple like <em>certificate.pdf</em>, (4) re-upload. If the PDF still fails, open it, screenshot the full page, save as <em>certificate.png</em>, and upload the PNG instead.</p>
-            <p style="margin-top:8px"><strong>If "Consult" still won't work, you can still submit.</strong> The "Consult" button is your preview, the Campus France reviewer does not use it. As long as the file appears in your "My supporting documents" list, it is part of your dossier. Submitting works even if Consult fails.</p>
-            <p style="margin-top:8px"><strong>Fallbacks</strong>: log out, clear cookies for <strong>pastel.diplomatie.gouv.fr</strong>, log back in, try a different browser. If nothing works, send the error reference number and the file to <strong><a href="mailto:academy@conceptcore.co">academy@conceptcore.co</a></strong>.</p>
+            <p>EEF updates its interface periodically. The stable path is <strong>Mon projet d'études → Je suis accepté → Acceptation papier reçue en dehors de l'application</strong>. Lost? Screenshot the page → academy@conceptcore.co.</p>
           </div>
         </div>
       </div>
@@ -955,24 +546,24 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
         <div class="tl-num">03</div>
         <div class="tl-body">
           <div class="tl-when">No earlier than 3 months before intake</div>
-          <div class="tl-title">France-Visas Application / VLS-TS Étudiant</div>
-          <p class="tl-text">Apply for the <strong>Visa Long Séjour valant Titre de Séjour — mention "Étudiant"</strong> at france-visas.gouv.fr. This 1-year student visa also acts as your residence permit for Year 1.</p>
-          <p class="tl-text" style="margin-top:8px"><strong>Once you have your EEF agreement, proceed — don't delay.</strong> If you haven't submitted your visa application yet, use the <strong>latest version of your Certificate of Enrollment</strong> (reissued July 2026 with our Code UAI 0942671T — download it from your certificate link). If your dossier is already under review, no need to resubmit anything; provide the updated certificate only if the consulate asks.</p>
+          <div class="tl-title">France-Visas / VLS-TS Étudiant</div>
+          <p class="tl-text">With your EEF agreement in hand, apply at <strong>france-visas.gouv.fr</strong> for the <strong>VLS-TS "Étudiant"</strong> — a 1-year visa that doubles as your Year 1 residence permit. <strong>Don't delay.</strong> Not yet submitted? Use the latest certificate (with UAI). Already under review? Only send the new version if asked.</p>
           <div class="tl-card">
             <div class="tl-card-lbl">Documents required</div>
             <ul class="doc-list">
-              <li><strong>Valid passport</strong>. Must cover your full stay</li>
-              <li><strong>Certificate of Enrollment</strong> from ConceptCore (the one Campus France validated for your EEF dossier)</li>
-              <li><strong>EEF Agreement</strong> from Campus France (if applicable)</li>
-              <li><strong>Financial proof</strong>. See the section below</li>
-              <li><strong>Proof of accommodation</strong>. See the section below</li>
+              <li><strong>Passport</strong> covering your full stay + passport photos (French standards) + fee ~€99</li>
+              <li><strong>Certificate of Enrollment</strong> (the one Campus France validated) + <strong>EEF Agreement</strong> (if applicable)</li>
+              <li><strong>Financial proof + accommodation proof</strong> — see the two sections below</li>
               <li><strong>Civil liability insurance</strong> for France</li>
-              <li>Passport-size photos (French standards) + visa fee (~€99)</li>
             </ul>
           </div>
-          <div class="callout amber" style="margin-top:12px">
-            <div class="cl">"Duration of stay" field → enter ONE YEAR (12 months)</div>
-            <p>On the France-Visas form, the "duration of stay / number of months" field decides your visa type. Even though the program is 3 years, enter <strong>one year (12 months)</strong>, not more. The first-year student visa (VLS-TS) is capped at 12 months by design and covers Year 1 only. If you declare <strong>more than 12 months</strong>, the system routes you to a different visa that forces a residence-permit application at the préfecture within 2 months of arrival. Declaring 12 months gives you the VLS-TS, which you simply validate online within 3 months of landing. You renew for Years 2 and 3 from inside France, before the first visa expires. "One year" also matches your Certificate of Enrollment, which covers a single academic year.</p>
+          <div class="callout amber">
+            <div class="cl">"Duration of stay" → enter 12 months</div>
+            <ul class="doc-list">
+              <li>The program is 3 years, but enter <strong>one year</strong> — the VLS-TS is capped at 12 months and covers Year 1 only</li>
+              <li>Declaring more routes you to a different visa requiring a préfecture residence-permit application within 2 months of arrival</li>
+              <li>12 months = simple online validation after landing; Years 2–3 are renewed from inside France</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -980,18 +571,18 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
       <div class="tl-step">
         <div class="tl-num">04</div>
         <div class="tl-body">
-          <div class="tl-when">Book well in advance. Slots fill fast in June and July</div>
-          <div class="tl-title">Biometrics at VFS Global / TLS Contact</div>
-          <p class="tl-text">Book your in-person appointment at the nearest French visa center after submitting online. Bring all originals and copies. Processing: <strong>2–8 weeks</strong>. Apply at least <strong>10–12 weeks before your start date</strong>.</p>
+          <div class="tl-when">Slots fill fast in June–July</div>
+          <div class="tl-title">Biometrics at VFS / TLS</div>
+          <p class="tl-text">Book the in-person appointment at your French visa center right after submitting online. Bring originals + copies. Processing <strong>2–8 weeks</strong> — apply at least <strong>10–12 weeks before your start date</strong>.</p>
         </div>
       </div>
 
       <div class="tl-step">
         <div class="tl-num">05</div>
         <div class="tl-body">
-          <div class="tl-when">Arrive at least 2 weeks before the academic year</div>
+          <div class="tl-when">Arrive 2+ weeks before the academic year</div>
           <div class="tl-title">Arrive in Paris</div>
-          <p class="tl-text">Visa sticker in hand. The process is not over. The most critical post-arrival step is validating your VLS-TS within 3 months of landing. See the full checklist below.</p>
+          <p class="tl-text">Visa in hand — one critical step left: <strong>validate your VLS-TS within 3 months of landing</strong>. Full checklist below.</p>
         </div>
       </div>
 
@@ -999,136 +590,140 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
   </div>
 
   <div class="section">
-    <div class="sec-lbl">Financial Proof · Most Common Rejection Reason</div>
-    <div class="sec-title">How much you need to show.</div>
+    <div class="sec-head">
+      <div class="sec-lbl">Act 02 · Financial Proof — #1 Rejection Reason</div>
+      <div class="sec-title">How much to show.</div>
+    </div>
     <div class="callout red">
       <div class="cl">The installment trap</div>
-      <p>The consulate requires <strong>€615/month for living expenses</strong>. Because ConceptCore allows monthly tuition payments, you must <em>also</em> show you can cover your monthly instalment simultaneously. Showing only €615 will result in rejection.</p>
+      <p>The consulate wants <strong>€615/month for living costs</strong> — but if you pay tuition monthly, you must <em>also</em> prove you can cover the instalment. Showing only €615 = rejection.</p>
     </div>
     <div class="table-wrap">
       <table class="fin">
         <thead><tr><th>Scenario</th><th>Monthly instalment</th><th>Minimum proof</th></tr></thead>
         <tbody>
-          <tr><td>Year 1, monthly plan</td><td>~€920/month × 10</td><td class="hi">~€1,535/mo</td></tr>
-          <tr><td>Year 1, upfront before June 1</td><td>€0 (paid in full)</td><td class="hi">€615/mo only</td></tr>
-          <tr><td>Years 2 and 3, monthly plan</td><td>~€1,200/month × 10</td><td class="hi">~€1,815/mo</td></tr>
-          <tr><td>Years 2 and 3, upfront</td><td>€0 (paid in full)</td><td class="hi">€615/mo only</td></tr>
+          <tr><td>Year 1, monthly plan</td><td>~€920 × 10</td><td class="hi">~€1,535/mo</td></tr>
+          <tr><td>Year 1, paid upfront</td><td>€0</td><td class="hi">€615/mo</td></tr>
+          <tr><td>Years 2–3, monthly plan</td><td>~€1,200 × 10</td><td class="hi">~€1,815/mo</td></tr>
+          <tr><td>Years 2–3, paid upfront</td><td>€0</td><td class="hi">€615/mo</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="sec-lbl" style="margin-top:1.5rem">Accepted proof methods</div>
-    <ul class="checklist" id="cl-fin">
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>AVI / Studely / Garantme (strongly recommended)</strong> for India, Morocco, Senegal and other high-scrutiny countries. Deposit the full year into a blocked French account; €615 released monthly. Gold standard proof.</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Personal bank statements</strong>. Consistent balance over 3+ months, not a recent lump deposit</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Financial guarantor</strong>. Sponsor's 3 bank statements + 3 payslips + tax returns + signed commitment letter</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Scholarship letter</strong>. Official documentation covering your costs</div></li>
-    </ul>
+    <div class="tl-card" style="margin-top:14px">
+      <div class="tl-card-lbl">Accepted proof</div>
+      <ul class="doc-list">
+        <li><strong>AVI / Studely / Garantme</strong> — blocked French account releasing €615/month. Gold standard; strongly recommended for India, Morocco, Senegal and other high-scrutiny countries</li>
+        <li><strong>Personal bank statements</strong> — consistent 3+ month balance, not a recent lump deposit</li>
+        <li><strong>Guarantor file</strong> — sponsor's 3 statements + 3 payslips + tax return + signed commitment letter</li>
+        <li><strong>Scholarship letter</strong> covering your costs</li>
+      </ul>
+    </div>
   </div>
 
   <div class="section">
-    <div class="sec-lbl">Accommodation Proof</div>
-    <div class="sec-title">Where are you living?</div>
-    <ul class="checklist" id="cl-accom">
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>French lease (bail)</strong>. A signed rental contract. Strongest option.</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Student residence booking</strong>. Certificate from Nexity, CROUS, Student Factory, etc.</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Hosting certificate</strong>. Host's handwritten signed letter + French ID copy + recent utility bill in their name</div></li>
-      <li onclick="toggleCheck(this)"><span class="chk"></span><div><strong>Paid Airbnb / hotel (30–90 days)</strong> — accepted with a cover letter explaining you will find permanent housing upon arrival</div></li>
-    </ul>
+    <div class="sec-head">
+      <div class="sec-lbl">Act 03 · Accommodation Proof</div>
+      <div class="sec-title">Where are you living?</div>
+    </div>
+    <div class="tl-card">
+      <div class="tl-card-lbl">Accepted options</div>
+      <ul class="doc-list">
+        <li><strong>French lease (bail)</strong> — strongest option</li>
+        <li><strong>Student residence booking</strong> — Nexity, CROUS, Student Factory…</li>
+        <li><strong>Hosting certificate</strong> — host's signed letter + their French ID + recent utility bill</li>
+        <li><strong>Paid Airbnb / hotel (30–90 days)</strong> + cover letter explaining you'll secure permanent housing on arrival</li>
+      </ul>
+    </div>
   </div>
 
   <div class="section">
-    <div class="sec-lbl">After Landing in Paris</div>
-    <div class="sec-title">Post-arrival checklist.</div>
-    <div class="callout red" style="margin-bottom:1.25rem">
+    <div class="sec-head">
+      <div class="sec-lbl">Act 04 · After Landing</div>
+      <div class="sec-title">Post-arrival checklist.</div>
+    </div>
+    <div class="callout red">
       <div class="cl">Critical — do not skip</div>
-      <p><strong>VLS-TS validation must be done within 3 months of arrival.</strong> Go to administration-etrangers-en-france.interieur.gouv.fr — pay ~€50 (timbre fiscal), provide arrival date and Paris address. Missing this means illegal resident status and an invalidated visa.</p>
+      <p><strong>Validate your VLS-TS within 3 months of arrival</strong> at administration-etrangers-en-france.interieur.gouv.fr (~€50 timbre fiscal, arrival date + address). Missing it = illegal status and an invalidated visa.</p>
     </div>
     <div class="post-grid">
       <div class="post-card">
-        <span class="pc-ico">✅</span>
         <div class="pc-title">VLS-TS Validation</div>
-        <div class="pc-dead">Within 3 months — critical</div>
-        <p>ANEF portal, fully online. ~€50 timbre fiscal. Required to stay legal and travel freely in Schengen.</p>
+        <div class="pc-dead">3 months — critical</div>
+        <p>ANEF portal, fully online, ~€50. Required to stay legal and travel in Schengen.</p>
       </div>
       <div class="post-card">
-        <span class="pc-ico">🏥</span>
         <div class="pc-title">Sécurité Sociale</div>
         <div class="pc-dead">First weeks</div>
-        <p>etudiant-etranger.ameli.fr. Validated visa + translated birth certificate. Covers ~70% of medical costs. Free.</p>
+        <p>etudiant-etranger.ameli.fr — validated visa + translated birth certificate. ~70% of medical costs, free.</p>
       </div>
       <div class="post-card">
-        <span class="pc-ico">🏠</span>
         <div class="pc-title">CAF / APL</div>
-        <div class="pc-dead">Once lease is signed</div>
-        <p>International students are fully eligible. Permanent lease in your name + French bank account required. Apply on caf.fr.</p>
+        <div class="pc-dead">Once lease signed</div>
+        <p>International students fully eligible. French lease in your name + French bank account → caf.fr.</p>
       </div>
       <div class="post-card">
-        <span class="pc-ico">🏦</span>
         <div class="pc-title">Bank Account</div>
         <div class="pc-dead">First week</div>
-        <p>N26 or Revolut open instantly. La Banque Postale for physical banking with no French credit history.</p>
+        <p>N26 / Revolut instantly; La Banque Postale for physical banking without French credit history.</p>
       </div>
       <div class="post-card">
-        <span class="pc-ico">📋</span>
-        <div class="pc-title">CVEC Tax</div>
+        <div class="pc-title">CVEC</div>
         <div class="pc-dead">~€105 before Day 1</div>
-        <p>We are confirming whether it applies to our establishment following our declaration with the Rectorat (July 2026). We will confirm and notify before intake.</p>
+        <p>Confirming whether it applies after our July 2026 declaration — we'll notify before intake.</p>
       </div>
       <div class="post-card">
-        <span class="pc-ico">🔄</span>
-        <div class="pc-title">Titre de Séjour Renewal</div>
-        <div class="pc-dead">Years 2 & 3 — start early</div>
-        <p>Renew via ANEF portal 2–4 months before expiry. Enrollment certificate + €615/month proof + health insurance. Allow 1–3 months.</p>
+        <div class="pc-title">Permit Renewal</div>
+        <div class="pc-dead">Years 2–3 — start early</div>
+        <p>ANEF, 2–4 months before expiry: enrollment certificate + €615/month proof + health insurance. Allow 1–3 months.</p>
       </div>
     </div>
   </div>
 
-  <div class="callout blue" style="margin-top:1rem">
-    <div class="cl">Planning to stay in France after you graduate?</div>
-    <p>Switch to the <strong>After Graduation</strong> tab above for a full breakdown of your options — including the Passeport Talent visa that some ConceptCore alumni have already secured.</p>
+  <div class="notice">
+    <div class="notice-title">Planning to stay after graduation?</div>
+    <p>Switch to the <strong>After Graduation</strong> tab for the full breakdown — including the Passeport Talent route ConceptCore-connected artists have already secured.</p>
   </div>
 
 </div><!-- /noneu-panel -->
 
-<!-- ══════════════════ AFTER GRADUATION PANEL ══════════════════ -->
+<!-- ═══ AFTER GRADUATION PANEL ═══ -->
 <div class="grad-panel" id="grad-panel">
 
   <div class="section">
-    <div class="sec-lbl">After Graduation</div>
-    <div class="sec-title">Staying in France.<br>Your options.</div>
+    <div class="sec-head">
+      <div class="sec-lbl">Track C · After Graduation</div>
+      <div class="sec-title">Staying in France.</div>
+    </div>
     <div class="callout lime">
       <div class="cl">The good news</div>
-      <p>The <strong>Passeport Talent</strong> visa is a very realistic outcome for concept art graduates entering the games and animation industry. It gives you 4 years of legal residency, the right to work, and a direct path toward permanent residency.</p>
+      <p>The <strong>Passeport Talent</strong> is a realistic outcome for concept art graduates: up to 4 years of residency, full work rights, and a direct path to permanent residency.</p>
     </div>
     <div class="callout amber">
       <div class="cl">One thing to know upfront</div>
-      <p>You need to transition to a work authorization <strong>before your student permit expires</strong>. This is very doable — but you need to start building your industry relationships from Year 2, not Year 3.</p>
+      <p>You must switch to a work authorization <strong>before your student permit expires</strong> — very doable, but start building industry relationships in <strong>Year 2</strong>, not Year 3.</p>
     </div>
   </div>
 
   <div class="section">
-    <div class="sec-lbl">Path 01 — Recommended</div>
-    <div class="sec-title">Passeport Talent</div>
-
+    <div class="sec-head">
+      <div class="sec-lbl">Path 01 · Salaried Hire</div>
+      <div class="sec-title">Passeport Talent — Salarié Qualifié</div>
+    </div>
     <div class="timeline">
 
       <div class="tl-step">
         <div class="tl-num">01</div>
         <div class="tl-body">
-          <div class="tl-when">Understand if you qualify</div>
-          <div class="tl-title">Eligibility — Salarié Qualifié</div>
-          <p class="tl-text">The most common Passeport Talent category for our graduates. You need three things: a signed job offer, a qualifying salary, and a recognized qualification or experience.</p>
-          <div class="tl-card">
-            <div class="tl-card-lbl">Requirements</div>
-            <ul class="doc-list">
-              <li>A job offer or signed contract from a French employer</li>
-              <li>Gross salary of at least <strong>1.5× the SMIC</strong> (~€2,700/month gross as of 2025)</li>
-              <li>Either a diploma of <strong>3+ years of higher education</strong>, or at least <strong>5 years of documented professional experience</strong></li>
-            </ul>
-          </div>
-          <div class="callout lime" style="margin-top:12px">
-            <div class="cl">Key advantage over a standard work visa</div>
-            <p>Your employer does <strong>not</strong> need to prove they couldn't find an EU candidate. This removes the biggest administrative barrier for studios wanting to hire you.</p>
+          <div class="tl-when">Do you qualify?</div>
+          <div class="tl-title">Eligibility</div>
+          <ul class="doc-list" style="padding-left:0">
+            <li>A job offer or signed contract from a French employer</li>
+            <li>Gross salary ≥ <strong>1.5× SMIC</strong> (~€2,700/month gross, 2025)</li>
+            <li>A <strong>3+ year higher-education diploma</strong> or <strong>5+ years documented experience</strong></li>
+          </ul>
+          <div class="callout lime">
+            <div class="cl">Key advantage</div>
+            <p>Your employer does <strong>not</strong> have to prove they couldn't find an EU candidate — the biggest administrative barrier, removed.</p>
           </div>
         </div>
       </div>
@@ -1136,60 +731,30 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
       <div class="tl-step">
         <div class="tl-num">02</div>
         <div class="tl-body">
-          <div class="tl-when">Your employer handles this step</div>
-          <div class="tl-title">Employer files with DREETS</div>
-          <p class="tl-text">Your employer (the studio hiring you) submits a work authorization request to the <strong>DREETS</strong> (Direction régionale de l'économie, de l'emploi, du travail et des solidarités). This is the regional labor authority. The studio's HR team will know this process — it is standard for international hires.</p>
-          <div class="tl-card">
-            <div class="tl-card-lbl">What your employer provides</div>
-            <ul class="doc-list">
-              <li>Your signed employment contract</li>
-              <li>A formal request for work authorization (demande d'autorisation de travail)</li>
-              <li>Proof that the role and salary meet the Passeport Talent criteria</li>
-            </ul>
-          </div>
+          <div class="tl-when">Employer-side</div>
+          <div class="tl-title">Studio files with DREETS</div>
+          <p class="tl-text">The hiring studio submits the work-authorization request (contract + role/salary proof) to the regional labor authority. Standard process for international hires — their HR knows it.</p>
         </div>
       </div>
 
       <div class="tl-step">
         <div class="tl-num">03</div>
         <div class="tl-body">
-          <div class="tl-when">If you are still outside France</div>
-          <div class="tl-title">Apply for the visa at your French consulate</div>
-          <p class="tl-text">Once the DREETS approves the work authorization, you apply for the <strong>VLS-TS Passeport Talent</strong> at the French consulate in your home country. If you are already in France on a student visa, go directly to Step 04.</p>
-          <div class="tl-card">
-            <div class="tl-card-lbl">Documents for the consulate</div>
-            <ul class="doc-list">
-              <li>Valid passport</li>
-              <li>DREETS work authorization approval</li>
-              <li>Signed employment contract</li>
-              <li>Proof of qualification (diploma or professional experience)</li>
-              <li>Proof of accommodation in France</li>
-              <li>Passport photos + visa fee</li>
-            </ul>
-          </div>
+          <div class="tl-when">If outside France</div>
+          <div class="tl-title">Consulate application</div>
+          <p class="tl-text">After DREETS approval, apply for the VLS-TS Passeport Talent at your French consulate: passport, approval, contract, qualification proof, accommodation, photos + fee.</p>
         </div>
       </div>
 
       <div class="tl-step">
         <div class="tl-num">04</div>
         <div class="tl-body">
-          <div class="tl-when">If you are already in France on a student visa</div>
-          <div class="tl-title">Change your status at the préfecture (ANEF)</div>
-          <p class="tl-text">You do not need to leave France. Apply for a <strong>change of residence permit status</strong> online via the ANEF portal. Do this <strong>before your student visa expires</strong> — a récépissé (receipt) from the préfecture allows you to stay legally while your application is processed.</p>
-          <div class="tl-card">
-            <div class="tl-card-lbl">How to apply online</div>
-            <ul class="doc-list">
-              <li>Go to <strong>administration-etrangers-en-france.interieur.gouv.fr</strong></li>
-              <li>Select "Changement de statut" (change of status)</li>
-              <li>Choose the Passeport Talent category</li>
-              <li>Upload all required documents</li>
-              <li>You receive a digital receipt immediately. This is your proof of legal stay while waiting</li>
-              <li>Processing: 1 to 3 months depending on the préfecture</li>
-            </ul>
-          </div>
-          <div class="callout amber" style="margin-top:12px">
+          <div class="tl-when">If already in France on a student visa</div>
+          <div class="tl-title">Change of status via ANEF</div>
+          <p class="tl-text">No need to leave France: <strong>administration-etrangers-en-france.interieur.gouv.fr</strong> → "Changement de statut" → Passeport Talent. You get a digital récépissé immediately (legal stay while processing, 1–3 months).</p>
+          <div class="callout amber">
             <div class="cl">Timing is critical</div>
-            <p>File your change of status application <strong>at minimum 2 months before your student permit expires</strong>. The récépissé is your safety net — but you need to apply while still in valid status.</p>
+            <p>File <strong>at least 2 months before your student permit expires</strong> — the récépissé only protects you if you applied while still in valid status.</p>
           </div>
         </div>
       </div>
@@ -1198,16 +763,11 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
         <div class="tl-num">05</div>
         <div class="tl-body">
           <div class="tl-when">After approval</div>
-          <div class="tl-title">Receive your 4-year Passeport Talent card</div>
-          <p class="tl-text">Your new residence permit is valid for <strong>4 years</strong>. You can work for your sponsoring employer, change employer after 1 year (with a simple declaration), bring family members to France under a simplified procedure, and travel freely in the Schengen Area.</p>
-          <div class="tl-card">
-            <div class="tl-card-lbl">What comes next</div>
-            <ul class="doc-list">
-              <li>After 5 years of legal residency in France, you can apply for a <strong>10-year resident card</strong></li>
-              <li>After 5 years, you may also be eligible for <strong>French naturalization</strong> depending on integration criteria</li>
-              <li>Your family members receive a <strong>Passeport Talent — famille</strong> permit, allowing them to work in France without additional authorization</li>
-            </ul>
-          </div>
+          <div class="tl-title">4-year card</div>
+          <ul class="doc-list" style="padding-left:0">
+            <li>Work for your sponsor; change employer after 1 year with a simple declaration; free Schengen travel; simplified family procedure (<strong>Passeport Talent — famille</strong> with work rights)</li>
+            <li>After 5 years of residency: <strong>10-year resident card</strong>, and possible <strong>naturalization</strong></li>
+          </ul>
         </div>
       </div>
 
@@ -1215,37 +775,31 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
   </div>
 
   <div class="section">
-    <div class="sec-lbl">Path 02 — For Freelancers</div>
-    <div class="sec-title">Passeport Talent — Profession Artistique et Culturelle</div>
-    <p style="font-size:14px;color:var(--muted);margin-bottom:1.25rem;line-height:1.7">A different Passeport Talent sub-category, designed for artists, performers, and authors of artistic work. The salary threshold is half of Path 01, you are <strong>not tied to a single employer</strong>, and you can mix freelance contracts with salaried gigs. For most concept artists, this is the most realistic post-graduation route.</p>
-
-    <div class="callout blue" style="margin-bottom:1.25rem">
-      <div class="cl">Written with Liza Gomza</div>
-      <p>This section was written with <strong>Liza Gomza</strong>, a Russian concept artist who secured her Passeport Talent through this exact route while based in France. The application notes below come from her direct experience going through the process.</p>
+    <div class="sec-head">
+      <div class="sec-lbl">Path 02 · Freelance Artists — Most Realistic Route</div>
+      <div class="sec-title">Passeport Talent — Profession Artistique</div>
     </div>
-
-    <div class="timeline">
+    <p class="tl-text" style="margin-bottom:12px">Half the salary threshold of Path 01, <strong>no single-employer tie</strong>, freelance + salaried mixable. For most concept artists, this is the one.</p>
+    <div class="callout blue">
+      <div class="cl">Written with Liza Gomza</div>
+      <p>This section was written with <strong>Liza Gomza</strong>, a Russian concept artist who secured her Passeport Talent through this exact route while in France. The notes below come from her application.</p>
+    </div>
+    <div class="timeline" style="margin-top:12px">
 
       <div class="tl-step">
         <div class="tl-num">01</div>
         <div class="tl-body">
-          <div class="tl-when">Understand if you qualify</div>
-          <div class="tl-title">Eligibility — Artiste-Interprète or Author</div>
-          <p class="tl-text">You must work as an artist-performer or as an author of literary or artistic work. Concept art qualifies. The financial and contract requirements are the main hurdles.</p>
-          <div class="tl-card">
-            <div class="tl-card-lbl">Requirements</div>
-            <ul class="doc-list">
-              <li>Monthly resources of at least <strong>70% of the SMIC</strong> (~€1,276/month gross as of 2025)</li>
-              <li>At least <strong>51% of your income must come from your artistic activity</strong></li>
-              <li>If salaried: contracts totaling at least <strong>3 months over a 12-month period</strong> with companies whose primary business is creating or exploiting intellectual property</li>
-              <li>At least some of your contracts must be <strong>connected to France</strong> (French studio, French publisher, French client)</li>
-              <li>For a <strong>1-year permit</strong> you need to show 12 months of resources. Longer duration = stronger income file.</li>
-              <li><strong>No diploma requirement</strong></li>
-            </ul>
-          </div>
-          <div class="callout lime" style="margin-top:12px">
+          <div class="tl-when">Do you qualify?</div>
+          <div class="tl-title">Eligibility — Artist / Author</div>
+          <ul class="doc-list" style="padding-left:0">
+            <li>Monthly resources ≥ <strong>70% of SMIC</strong> (~€1,276 gross, 2025), with <strong>≥51% of income from artistic activity</strong></li>
+            <li>If salaried: contracts totaling <strong>3+ months over 12</strong> with IP-creating companies</li>
+            <li>Some contracts must be <strong>connected to France</strong> (French studio, publisher or client)</li>
+            <li>1-year permit = 12 months of resources shown; stronger income = longer permit. <strong>No diploma requirement</strong></li>
+          </ul>
+          <div class="callout lime">
             <div class="cl">Compared to Path 01</div>
-            <p>Half the salary threshold, no employer sponsorship needed, no diploma rule, no labor-market test. The trade-off: you build the file yourself — there is no studio HR team carrying the application for you.</p>
+            <p>Half the threshold, no sponsorship, no labor-market test — but you build the file yourself; no studio HR carries it.</p>
           </div>
         </div>
       </div>
@@ -1253,50 +807,34 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
       <div class="tl-step">
         <div class="tl-num">02</div>
         <div class="tl-body">
-          <div class="tl-when">Strengthen your file before applying</div>
-          <div class="tl-title">Register as auto-entrepreneur + INPI</div>
-          <p class="tl-text">Liza recommends registering as a French <strong>auto-entrepreneur</strong> (micro-entrepreneur) before applying. The <strong>INPI</strong> registration certificate becomes a strong supporting document — it shows you are an actual structured artistic professional based in France, not just someone hoping to be one.</p>
-          <div class="tl-card">
-            <div class="tl-card-lbl">Why this helps</div>
-            <ul class="doc-list">
-              <li>Demonstrates a France-anchored professional structure</li>
-              <li>Lets you invoice French and international clients legally</li>
-              <li>The INPI certificate attaches directly to your application file</li>
-              <li>Registration is free at <strong>inpi.fr</strong> and only takes a few days</li>
-            </ul>
-          </div>
+          <div class="tl-when">Before applying</div>
+          <div class="tl-title">Register auto-entrepreneur + INPI</div>
+          <p class="tl-text">Liza's advice: register as a French <strong>auto-entrepreneur</strong> first (free, inpi.fr, a few days). The INPI certificate anchors you as a structured professional in France, lets you invoice legally, and attaches straight into your file.</p>
         </div>
       </div>
 
       <div class="tl-step">
         <div class="tl-num">03</div>
         <div class="tl-body">
-          <div class="tl-when">Apply online</div>
-          <div class="tl-title">Submit via ANEF — Passeport Talent — Artiste</div>
-          <p class="tl-text">Go to <strong>administration-etrangers-en-france.interieur.gouv.fr</strong>, create an account, and apply for a new long-stay permit. Select the category <strong>Passeport Talent — Artiste</strong>. The form can be saved as a draft and modified multiple times before final submission.</p>
+          <div class="tl-when">Apply online via ANEF</div>
+          <div class="tl-title">Passeport Talent — Artiste</div>
+          <ul class="doc-list" style="padding-left:0">
+            <li>Apply on ANEF between <strong>4 and 2 months before</strong> your current permit expires (after expiry = impossible). Draft can be saved and edited before submission</li>
+            <li>If it expires mid-processing, the préfecture issues a prolongation paper. On approval you pay <strong>€350</strong> in stamps</li>
+          </ul>
           <div class="tl-card">
-            <div class="tl-card-lbl">Timing</div>
+            <div class="tl-card-lbl">The file</div>
             <ul class="doc-list">
-              <li>Submit no earlier than <strong>4 months</strong> and no later than <strong>2 months</strong> before your current visa expires</li>
-              <li>Applying after expiry is not possible — start early</li>
-              <li>If your visa expires during processing, the préfecture issues a prolongation paper that keeps you legal until they decide</li>
-              <li>If approved, you pay <strong>€350</strong> in tax stamps (€50 stamp duty + €300 tax) before the card is issued</li>
+              <li>Passport (15+ months left), current permit, e-photo</li>
+              <li><strong>CV, portfolio and motivation letter in French</strong> — what you do, links, why France (community, career, life). Mention your ConceptCore education + attach the certificate</li>
+              <li><strong>Every contract, NDA, offer and gig you have</strong> — some must be France-connected</li>
+              <li>Bank statements proving 70% SMIC with ≥51% artistic income + <strong>INPI certificate</strong></li>
+              <li>Accommodation proof (contract or utility bill &lt;6 months) + <a href="https://www.immigration.interieur.gouv.fr/limmigration-en-france/l-administration-numerique-pour-les-etrangers-en-France/le-contrat-d-engagement-a-respecter-les-principes-de-la-republique" target="_blank" rel="noopener">signed commitment to the principles of the Republic</a></li>
             </ul>
           </div>
-          <div class="tl-card" style="margin-top:12px">
-            <div class="tl-card-lbl">Documents to prepare</div>
-            <ul class="doc-list">
-              <li>Valid passport (usually 15+ months remaining)</li>
-              <li>Current long-stay visa or residence permit</li>
-              <li>E-photo (Photomaton booth)</li>
-              <li><strong>CV, portfolio, motivational letter — written in French.</strong> Introduce yourself, explain what your job actually is, link to your portfolio and social media. Explain why France specifically: community, life in France, career opportunities. Mention your ConceptCore education and attach the certificate.</li>
-              <li>Proof of artistic or cultural activity (publications, awards, teaching) — optional for concept art if you don't have these</li>
-              <li>Contracts, signed NDAs, offers, gigs — show everything you have. <strong>At least some must be connected to France.</strong></li>
-              <li>Bank statements proving 70% SMIC monthly with at least 51% from artistic work</li>
-              <li>INPI certificate from your auto-entrepreneur registration</li>
-              <li>Proof of accommodation in France (housing contract or utility bill under 6 months old)</li>
-              <li><a href="https://www.immigration.interieur.gouv.fr/limmigration-en-france/l-administration-numerique-pour-les-etrangers-en-France/le-contrat-d-engagement-a-respecter-les-principes-de-la-republique" target="_blank" rel="noopener">Signed commitment to respect the principles of the Republic</a></li>
-            </ul>
+          <div class="callout blue">
+            <div class="cl">Note from Liza</div>
+            <p>Signed contracts but no completed payments yet? Fine — they may ask for extra papers later. The file is visual: treat it like a portfolio review, well-structured and easy to read.</p>
           </div>
         </div>
       </div>
@@ -1305,150 +843,90 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
         <div class="tl-num">04</div>
         <div class="tl-body">
           <div class="tl-when">After approval</div>
-          <div class="tl-title">Receive a 1 to 4-year Passeport Talent card</div>
-          <p class="tl-text">Unlike Path 01 which is always 4 years, this sub-category is granted for <strong>1 to 4 years</strong> depending on the financial resources you document. Stronger income, longer permit. The permit still grants the same long-term trajectory: 10-year resident card after 5 years of legal residency, naturalization possible.</p>
-          <div class="callout blue" style="margin-top:12px">
-            <div class="cl">Note from Liza</div>
-            <p>If you just started your career and have signed contracts but no completed payments yet, that's fine — they may ask for additional papers later. The file is visual: treat it like a portfolio review, make it well-structured and easy to read.</p>
-          </div>
+          <div class="tl-title">1 to 4-year card</div>
+          <p class="tl-text">Duration depends on the income you documented. Same long-term trajectory: 10-year resident card after 5 years, naturalization possible.</p>
         </div>
       </div>
 
     </div>
-
-    <div class="callout amber" style="margin-top:1rem">
+    <div class="callout amber">
       <div class="cl">Disclaimer</div>
-      <p>This route is based on Liza's personal experience as a non-EU student already based in France. Outcomes depend on your file, your préfecture, and how strong your French anchor is. For complex cases, consult a French immigration lawyer specialising in talent visas.</p>
+      <p>Based on Liza's personal experience. Outcomes depend on your file and your préfecture. For complex cases, consult a French immigration lawyer specialising in talent visas.</p>
     </div>
   </div>
 
   <div class="section">
-    <div class="sec-lbl">Path 03 — Fallback</div>
-    <div class="sec-title">Standard Salarié visa</div>
-    <p style="font-size:14px;color:var(--muted);margin-bottom:1.25rem;line-height:1.7">If neither Passeport Talent route works (no qualifying salary, no qualifying artistic file), a standard Salarié work visa is the fallback. It works — but requires more from your employer.</p>
-    <div class="timeline">
-
-      <div class="tl-step">
-        <div class="tl-num">01</div>
-        <div class="tl-body">
-          <div class="tl-when">Employer-side requirement</div>
-          <div class="tl-title">Opposabilité de l'emploi</div>
-          <p class="tl-text">Your employer must formally demonstrate that they <strong>could not find a suitable EU/EEA/Swiss candidate</strong> for the role before hiring you. They do this by posting the job with France Travail (formerly Pôle Emploi) for at least 3 weeks. This is the main friction point.</p>
-        </div>
-      </div>
-
-      <div class="tl-step">
-        <div class="tl-num">02</div>
-        <div class="tl-body">
-          <div class="tl-when">Same as Passeport Talent process</div>
-          <div class="tl-title">DREETS authorization, then consulate or préfecture</div>
-          <p class="tl-text">The process mirrors the Passeport Talent route: DREETS authorization first, then apply at the consulate if outside France, or change status at the préfecture if already in France.</p>
-          <div class="tl-card">
-            <div class="tl-card-lbl">Key differences to know</div>
-            <ul class="doc-list">
-              <li>Permit valid for <strong>1 year only</strong>, must be renewed annually</li>
-              <li>You are tied to your sponsoring employer — changing jobs requires a new authorization</li>
-              <li>No minimum salary threshold, but the role must match your qualification level</li>
-              <li>Family reunification is possible but requires a separate, slower procedure</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+    <div class="sec-head">
+      <div class="sec-lbl">Path 03 · Fallback</div>
+      <div class="sec-title">Standard Salarié visa</div>
     </div>
-  </div>
-
-  <div class="section">
-    <div class="sec-lbl">Path 04</div>
-    <div class="sec-title">Freelance — Porteur de Projet</div>
-    <div class="callout blue">
-      <div class="cl">Independent concept artists</div>
-      <p>If you want to take contracts from multiple studios rather than joining one full-time, you can register as a <strong>micro-entrepreneur</strong> (auto-entrepreneur) in France. For visa purposes, you would apply for a <strong>Passeport Talent — Porteur de Projet</strong>. This requires a business plan and proof of projected income. Viable if you already have client relationships. Consult a French immigration lawyer for your specific situation.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="sec-lbl">Studios to Target in France and Europe</div>
-    <div class="sec-title">Where to look.</div>
-    <div class="tl-card" style="margin-bottom:0.875rem">
-      <div class="tl-card-lbl">Paris and France</div>
+    <div class="tl-card">
+      <div class="tl-card-lbl">If neither Passeport Talent route fits</div>
       <ul class="doc-list">
-        <li><strong>Ubisoft</strong> — Paris, Annecy, Montpellier. Largest employer of concept artists in France</li>
-        <li><strong>Don't Nod Entertainment</strong> — Paris. Narrative games, strong vis-dev culture</li>
-        <li><strong>Quantic Dream</strong> — Paris. Cinematic storytelling, high production value</li>
-        <li><strong>Ankama</strong> — Roubaix. Unique graphic universe, strong art direction</li>
-        <li><strong>Illumination Mac Guff</strong> — Paris. Animation, character and environment design</li>
-        <li><strong>Snowcast, Leikir Studio, Lightbulb Crew</strong> — Paris. Smaller studios, faster hiring cycles</li>
-        <li><strong>Disney TVA / Cartoon Network studios</strong> — Paris. Animation and vis-dev roles</li>
+        <li>Your employer must prove they <strong>couldn't find an EU candidate</strong> (job posted 3+ weeks with France Travail) — the main friction</li>
+        <li>Then the same flow: DREETS → consulate or préfecture</li>
+        <li><strong>1-year permit</strong>, renewed annually, tied to the sponsoring employer; no salary threshold but the role must match your qualification; family reunification slower</li>
+      </ul>
+    </div>
+    <div class="callout blue">
+      <div class="cl">Fully independent instead?</div>
+      <p>Register as <strong>micro-entrepreneur</strong> and apply for <strong>Passeport Talent — Porteur de Projet</strong>: business plan + projected income required. Viable with existing client relationships — get a lawyer's advice for your case.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-lbl">Where to Look</div>
+      <div class="sec-title">Studios to target.</div>
+    </div>
+    <div class="tl-card">
+      <div class="tl-card-lbl">Paris &amp; France</div>
+      <ul class="doc-list">
+        <li><strong>Ubisoft</strong> (Paris, Annecy, Montpellier) — largest concept art employer in France</li>
+        <li><strong>Don't Nod</strong> · <strong>Quantic Dream</strong> (Paris) — narrative and cinematic games</li>
+        <li><strong>Ankama</strong> (Roubaix) · <strong>Illumination Mac Guff</strong> (Paris) — animation and strong AD cultures</li>
+        <li><strong>Snowcast, Leikir, Lightbulb Crew</strong> (Paris) — smaller studios, faster hiring</li>
+        <li><strong>Disney TVA / Cartoon Network</strong> (Paris) — vis-dev roles</li>
       </ul>
     </div>
     <div class="tl-card">
-      <div class="tl-card-lbl">Remote contracts while based in France (common path)</div>
+      <div class="tl-card-lbl">Remote from France — common path</div>
       <ul class="doc-list">
-        <li>Many concept artists in Paris work remotely for US/UK studios while living in France on a Passeport Talent or Salarié permit</li>
-        <li>Studios like Riot Games, Epic, CD Projekt RED, and others regularly hire remote concept artists</li>
-        <li>This works well once you have a French employer willing to sponsor the initial permit — the remote work is additional income, not the primary sponsoring contract</li>
+        <li>Many Paris-based artists work remotely for US/UK studios (Riot, Epic, CDPR…) on top of a French permit</li>
+        <li>Works best once a French anchor (employer or artistic file) sponsors the initial permit — remote gigs are extra income</li>
       </ul>
     </div>
   </div>
 
-  <div class="section">
-    <div class="sec-lbl">ConceptCore Support</div>
-    <div class="sec-title">What we do to help.</div>
-    <div class="post-grid">
-      <div class="post-card">
-        <span class="pc-ico">🎓</span>
-        <div class="pc-title">Aftercare Program</div>
-        <div class="pc-dead">12 months post-graduation</div>
-        <p>Portfolio follow-up and job hunting support for 12 months after graduation. Included in tuition for Year 1 + 2 completers.</p>
-      </div>
-      <div class="post-card">
-        <span class="pc-ico">🎤</span>
-        <div class="pc-title">Graduation Show</div>
-        <div class="pc-dead">End of Year 3</div>
-        <p>Present your portfolio directly to industry professionals. Year 1 + 2 completers are all invited. Your fastest route to a job offer.</p>
-      </div>
-      <div class="post-card">
-        <span class="pc-ico">🤝</span>
-        <div class="pc-title">Studio Connections</div>
-        <div class="pc-dead">Built throughout</div>
-        <p>Mentors and masterclass guests are active in the Paris and European concept art industry. Relationships built here open real doors.</p>
-      </div>
-      <div class="post-card">
-        <span class="pc-ico">📅</span>
-        <div class="pc-title">Start in Year 2</div>
-        <div class="pc-dead">Non-EU students especially</div>
-        <p>You need a job offer before your student visa expires. Reach out to studios, do test pieces, build relationships from Year 2 onwards.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout blue" style="margin-top:0.5rem">
-    <div class="cl">Questions about your specific situation?</div>
-    <p>Visa paths vary by nationality, salary, and employer. For personalized help with your post-graduation visa path, write to <strong>Liza — <a href="mailto:lizavetagomza@gmail.com">lizavetagomza@gmail.com</a></strong>, who went through this exact process herself. For complex cases, consult a French immigration lawyer. We can refer you to trusted contacts.</p>
+  <div class="callout blue">
+    <div class="cl">Questions about your situation?</div>
+    <p>For personalized help with your post-graduation visa path, write to <strong>Liza — <a href="mailto:lizavetagomza@gmail.com">lizavetagomza@gmail.com</a></strong>, who went through this exact process. For complex cases we can refer you to an immigration lawyer.</p>
   </div>
 
 </div><!-- /grad-panel -->
 
 </div><!-- /panel-wrap -->
 
-<hr class="div">
-
-<div class="section">
-  <div class="sec-lbl">Questions</div>
-  <div class="sec-title">We're here.</div>
+<div class="section" style="margin-top:44px">
+  <div class="sec-head">
+    <div class="sec-lbl">Questions</div>
+    <div class="sec-title">We're here.</div>
+  </div>
   <ul class="checklist">
     <li onclick="toggleCheck(this)"><span class="chk"></span><div>All inquiries — <strong><a href="mailto:academy@conceptcore.co">academy@conceptcore.co</a></strong></div></li>
     <li onclick="toggleCheck(this)"><span class="chk"></span><div>Website — <strong>www.conceptcore.co</strong></div></li>
   </ul>
 </div>
 
+<div class="ghost">See you in Paris<span style="-webkit-text-stroke:0;color:var(--lime)">/</span></div>
+<div class="ghost-sub">// Intake · 14 September 2026 · Arcueil Campus</div>
+
 </div><!-- /main -->
 
 <footer class="site-footer">
-  <div class="footer-logo">CONCEPT<span>CORE</span></div>
+  <div class="footer-logo">CONCEPT<span>CORE</span> ACADEMY</div>
   <div class="footer-info">
-    23–25 AVE. JEANNE D'ARC · 94110 ARCUEIL<br>
+    23–25 AVE. JEANNE D'ARC · 94110 ARCUEIL · UAI 0942671T<br>
     <a href="mailto:academy@conceptcore.co">ACADEMY@CONCEPTCORE.CO</a> · WWW.CONCEPTCORE.CO<br>
     VERIFY ALL VISA INFO AT FRANCE-VISAS.GOUV.FR
   </div>
@@ -1456,7 +934,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:3rem 0}
 
 <script>
 // ── PANEL SWITCHER ──
-function sw(t) {
+function sw(t, scroll) {
   const panels = {
     eu:   document.getElementById('eu-panel'),
     noneu:document.getElementById('noneu-panel'),
@@ -1468,18 +946,9 @@ function sw(t) {
   btns.forEach(b => b.classList.remove('active'));
   panels[t].classList.add('active');
   btns[order.indexOf(t)].classList.add('active');
-  // hide UAI banner for grad tab, show for others
   const uai = document.getElementById('uai-banner');
   if (uai) uai.style.display = t === 'grad' ? 'none' : '';
-  document.querySelector('.panel-wrap').scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-// ── UAI COLLAPSE ──
-function toggleUAI() {
-  const banner = document.getElementById('uai-banner');
-  const hint = banner.querySelector('.count-expand');
-  const isOpen = banner.classList.toggle('open');
-  if (hint) hint.textContent = isOpen ? 'COLLAPSE' : 'EXPAND';
+  if (scroll) document.querySelector('.panel-wrap').scrollIntoView({behavior:'smooth', block:'start'});
 }
 
 // ── CHECKABLE ITEMS ──
@@ -1487,7 +956,6 @@ function toggleCheck(el) {
   el.classList.toggle('checked');
   updateProgress();
 }
-
 function updateProgress() {
   const euList = document.getElementById('cl-eu-enroll');
   const euProg = document.getElementById('prog-eu-enroll');
@@ -1498,7 +966,6 @@ function updateProgress() {
     euProg.classList.toggle('done', done === total);
   }
 }
-
 updateProgress();
 
 // ── INITIAL TAB FROM ?tab= OR #tab ──
@@ -1508,18 +975,7 @@ updateProgress();
   const fromQuery = params.get('tab');
   const fromHash = location.hash.replace('#','');
   const initial = valid.includes(fromQuery) ? fromQuery : (valid.includes(fromHash) ? fromHash : null);
-  if (initial && initial !== 'eu') {
-    // Suppress sw()'s scrollIntoView so deep-link lands at top of page
-    const origScroll = Element.prototype.scrollIntoView;
-    Element.prototype.scrollIntoView = function(){};
-    sw(initial);
-    Element.prototype.scrollIntoView = origScroll;
-  }
-  if (params.get('uai') === 'open') {
-    document.getElementById('uai-banner').classList.add('open');
-    const hint = document.querySelector('.count-expand');
-    if (hint) hint.textContent = 'COLLAPSE';
-  }
+  if (initial && initial !== 'eu') sw(initial, false);
 })();
 </script>
 </body>
